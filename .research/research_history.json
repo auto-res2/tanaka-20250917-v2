@@ -528,7 +528,478 @@
         "CelebA-HQ",
         "ImageNet-64",
         "LSUN-Bedroom"
-      ]
+      ],
+      "external_resources": {
+        "hugging_face": {
+          "models": [],
+          "datasets": [
+            {
+              "id": "uoft-cs/cifar10",
+              "author": "uoft-cs",
+              "sha": "0b2714987fa478483af9968de7c934580d0bb9a2",
+              "created_at": "2022-03-02T23:29:22+00:00",
+              "last_modified": "2024-01-04T06:53:11+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 69296,
+              "likes": 82,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "plain_text/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "plain_text/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "license": [
+                  "unknown"
+                ],
+                "language": [
+                  "en"
+                ],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "image-classification"
+                ],
+                "size_categories": [
+                  "10K<n<100K"
+                ],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:image-classification",
+                "annotations_creators:crowdsourced",
+                "language_creators:found",
+                "multilinguality:monolingual",
+                "source_datasets:extended|other-80-Million-Tiny-Images",
+                "language:en",
+                "license:unknown",
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\nannotations_creators:\n- crowdsourced\nlanguage_creators:\n- found\nlanguage:\n- en\nlicense:\n- unknown\nmultilinguality:\n- monolingual\nsize_categories:\n- 10K<n<100K\nsource_datasets:\n- extended|other-80-Million-Tiny-Images\ntask_categories:\n- image-classification\ntask_ids: []\npaperswithcode_id: cifar-10\npretty_name: Cifar10\ndataset_info:\n  config_name: plain_text\n  features:\n  - name: img\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': airplane\n          '1': automobile\n          '2': bird\n          '3': cat\n          '4': deer\n          '5': dog\n          '6': frog\n          '7': horse\n          '8': ship\n          '9': truck\n  splits:\n  - name: train\n    num_bytes: 113648310.0\n    num_examples: 50000\n  - name: test\n    num_bytes: 22731580.0\n    num_examples: 10000\n  download_size: 143646105\n  dataset_size: 136379890.0\nconfigs:\n- config_name: plain_text\n  data_files:\n  - split: train\n    path: plain_text/train-*\n  - split: test\n    path: plain_text/test-*\n  default: true\n---\n\n# Dataset Card for CIFAR-10\n\n## Table of Contents\n- [Dataset Description](#dataset-description)\n  - [Dataset Summary](#dataset-summary)\n  - [Supported Tasks and Leaderboards](#supported-tasks-and-leaderboards)\n  - [Languages](#languages)\n- [Dataset Structure](#dataset-structure)\n  - [Data Instances](#data-instances)\n  - [Data Fields](#data-fields)\n  - [Data Splits](#data-splits)\n- [Dataset Creation](#dataset-creation)\n  - [Curation Rationale](#curation-rationale)\n  - [Source Data](#source-data)\n  - [Annotations](#annotations)\n  - [Personal and Sensitive Information](#personal-and-sensitive-information)\n- [Considerations for Using the Data](#considerations-for-using-the-data)\n  - [Social Impact of Dataset](#social-impact-of-dataset)\n  - [Discussion of Biases](#discussion-of-biases)\n  - [Other Known Limitations](#other-known-limitations)\n- [Additional Information](#additional-information)\n  - [Dataset Curators](#dataset-curators)\n  - [Licensing Information](#licensing-information)\n  - [Citation Information](#citation-information)\n  - [Contributions](#contributions)\n\n## Dataset Description\n\n- **Homepage:** https://www.cs.toronto.edu/~kriz/cifar.html\n- **Repository:** \n- **Paper:** Learning Multiple Layers of Features from Tiny Images by Alex Krizhevsky\n- **Leaderboard:**\n- **Point of Contact:**\n\n### Dataset Summary\n\nThe CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.\nThe dataset is divided into five training batches and one test batch, each with 10000 images. The test batch contains exactly 1000 randomly-selected images from each class. The training batches contain the remaining images in random order, but some training batches may contain more images from one class than another. Between them, the training batches contain exactly 5000 images from each class.\n\n### Supported Tasks and Leaderboards\n\n- `image-classification`: The goal of this task is to classify a given image into one of 10 classes. The leaderboard is available [here](https://paperswithcode.com/sota/image-classification-on-cifar-10).\n\n### Languages\n\nEnglish\n\n## Dataset Structure\n\n### Data Instances\n\nA sample from the training set is provided below:\n\n```\n{\n  'img': <PIL.PngImagePlugin.PngImageFile image mode=RGB size=32x32 at 0x201FA6EE748>,\n  'label': 0\n}\n```\n\n### Data Fields\n\n- img: A `PIL.Image.Image` object containing the 32x32 image. Note that when accessing the image column: `dataset[0][\"image\"]` the image file is automatically decoded. Decoding of a large number of image files might take a significant amount of time. Thus it is important to first query the sample index before the `\"image\"` column, *i.e.* `dataset[0][\"image\"]` should **always** be preferred over `dataset[\"image\"][0]`\n- label: 0-9 with the following correspondence\n         0 airplane\n         1 automobile\n         2 bird\n         3 cat\n         4 deer\n         5 dog\n         6 frog\n         7 horse\n         8 ship\n         9 truck\n\n### Data Splits\n\nTrain and Test\n\n## Dataset Creation\n\n### Curation Rationale\n\n[More Information Needed]\n\n### Source Data\n\n#### Initial Data Collection and Normalization\n\n[More Information Needed]\n\n#### Who are the source language producers?\n\n[More Information Needed]\n\n### Annotations\n\n#### Annotation process\n\n[More Information Needed]\n\n#### Who are the annotators?\n\n[More Information Needed]\n\n### Personal and Sensitive Information\n\n[More Information Needed]\n\n## Considerations for Using the Data\n\n### Social Impact of Dataset\n\n[More Information Needed]\n\n### Discussion of Biases\n\n[More Information Needed]\n\n### Other Known Limitations\n\n[More Information Needed]\n\n## Additional Information\n\n### Dataset Curators\n\n[More Information Needed]\n\n### Licensing Information\n\n[More Information Needed]\n\n### Citation Information\n\n```\n@TECHREPORT{Krizhevsky09learningmultiple,\n    author = {Alex Krizhevsky},\n    title = {Learning multiple layers of features from tiny images},\n    institution = {},\n    year = {2009}\n}\n```\n\n### Contributions\n\nThanks to [@czabo](https://github.com/czabo) for adding this dataset.",
+              "extracted_code": "from datasets import load_dataset\n\n# Load the dataset\ndataset = load_dataset(\"cifar10\", \"plain_text\")\n\n# Accessing data\nprint(dataset[\"train\"][0])\nprint(dataset[\"test\"][0])"
+            },
+            {
+              "id": "ego-thales/cifar10",
+              "author": "ego-thales",
+              "sha": "f1796d3b7133967d2bc84810c1843f51890b44b2",
+              "created_at": "2025-08-07T14:53:10+00:00",
+              "last_modified": "2025-08-08T09:28:56+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 2073,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "calibration/airplane.zip"
+                },
+                {
+                  "rfilename": "calibration/automobile.zip"
+                },
+                {
+                  "rfilename": "calibration/bird.zip"
+                },
+                {
+                  "rfilename": "calibration/cat.zip"
+                },
+                {
+                  "rfilename": "calibration/deer.zip"
+                },
+                {
+                  "rfilename": "calibration/dog.zip"
+                },
+                {
+                  "rfilename": "calibration/frog.zip"
+                },
+                {
+                  "rfilename": "calibration/horse.zip"
+                }
+              ],
+              "card_data": {
+                "license": "mit",
+                "language": "en",
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "image-classification"
+                ],
+                "size_categories": "100K<n<1M",
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:image-classification",
+                "source_datasets:https://www.cs.toronto.edu/~kriz/cifar.html",
+                "language:en",
+                "license:mit",
+                "size_categories:100K<n<1M",
+                "format:imagefolder",
+                "modality:image",
+                "modality:text",
+                "library:datasets",
+                "library:mlcroissant",
+                "region:us"
+              ],
+              "readme": "---\npretty_name: \"CIFAR10 with leftover data for calibration\"\nlicense: mit\nlanguage: en\ntask_categories: [\"image-classification\"]\nsize_categories: 100K<n<1M\nsource_datasets: \"https://www.cs.toronto.edu/~kriz/cifar.html\"\ndataset_info:\n  features:\n    - name: image\n      dtype: image\n    - name: label\n      dtype: int64\n    - name: classname\n      dtype: string\nconfigs:\n- config_name: complete\n  default: true\n  data_files:\n  - split: train\n    path: \"train/*.zip\"\n  - split: calibration\n    path: \"calibration/*.zip\"\n  - split: test\n    path: \"test/*.zip\"\n- config_name: no_airplane\n  data_files:\n  - split: train\n    path:\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n  - split: calibration\n    path:\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n  - split: test\n    path:\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n  - split: left_out_train\n    path: \"train/airplane.zip\"\n  - split: left_out_calibration\n    path: \"calibration/airplane.zip\"\n  - split: left_out_test\n    path: \"test/airplane.zip\"\n  - split: left_out\n    path: \n    - \"train/airplane.zip\"\n    - \"calibration/airplane.zip\"\n    - \"test/airplane.zip\"\n- config_name: no_automobile\n  data_files:\n  - split: train\n    path:\n    - \"train/airplane.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n  - split: calibration\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n  - split: test\n    path:\n    - \"test/airplane.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n  - split: left_out_train\n    path: \"train/automobile.zip\"\n  - split: left_out_calibration\n    path: \"calibration/automobile.zip\"\n  - split: left_out_test\n    path: \"test/automobile.zip\"\n  - split: left_out\n    path: \n    - \"train/automobile.zip\"\n    - \"calibration/automobile.zip\"\n    - \"test/automobile.zip\"\n- config_name: no_bird\n  data_files:\n  - split: train\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n  - split: calibration\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n  - split: test\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n  - split: left_out_train\n    path: \"train/bird.zip\"\n  - split: left_out_calibration\n    path: \"calibration/bird.zip\"\n  - split: left_out_test\n    path: \"test/bird.zip\"\n  - split: left_out\n    path: \n    - \"train/bird.zip\"\n    - \"calibration/bird.zip\"\n    - \"test/bird.zip\"\n- config_name: no_cat\n  data_files:\n  - split: train\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n  - split: calibration\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n  - split: test\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n  - split: left_out_train\n    path: \"train/cat.zip\"\n  - split: left_out_calibration\n    path: \"calibration/cat.zip\"\n  - split: left_out_test\n    path: \"test/cat.zip\"\n  - split: left_out\n    path: \n    - \"train/cat.zip\"\n    - \"calibration/cat.zip\"\n    - \"test/cat.zip\"\n- config_name: no_deer\n  data_files:\n  - split: train\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n  - split: calibration\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n  - split: test\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n  - split: left_out_train\n    path: \"train/deer.zip\"\n  - split: left_out_calibration\n    path: \"calibration/deer.zip\"\n  - split: left_out_test\n    path: \"test/deer.zip\"\n  - split: left_out\n    path: \n    - \"train/deer.zip\"\n    - \"calibration/deer.zip\"\n    - \"test/deer.zip\"\n- config_name: no_dog\n  data_files:\n  - split: train\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n  - split: calibration\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n  - split: test\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n  - split: left_out_train\n    path: \"train/dog.zip\"\n  - split: left_out_calibration\n    path: \"calibration/dog.zip\"\n  - split: left_out_test\n    path: \"test/dog.zip\"\n  - split: left_out\n    path: \n    - \"train/dog.zip\"\n    - \"calibration/dog.zip\"\n    - \"test/dog.zip\"\n- config_name: no_frog\n  data_files:\n  - split: train\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n  - split: calibration\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n  - split: test\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n  - split: left_out_train\n    path: \"train/frog.zip\"\n  - split: left_out_calibration\n    path: \"calibration/frog.zip\"\n  - split: left_out_test\n    path: \"test/frog.zip\"\n  - split: left_out\n    path: \n    - \"train/frog.zip\"\n    - \"calibration/frog.zip\"\n    - \"test/frog.zip\"\n- config_name: no_horse\n  data_files:\n  - split: train\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n  - split: calibration\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n  - split: test\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n  - split: left_out_train\n    path: \"train/horse.zip\"\n  - split: left_out_calibration\n    path: \"calibration/horse.zip\"\n  - split: left_out_test\n    path: \"test/horse.zip\"\n  - split: left_out\n    path: \n    - \"train/horse.zip\"\n    - \"calibration/horse.zip\"\n    - \"test/horse.zip\"\n- config_name: no_ship\n  data_files:\n  - split: train\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/truck.zip\"\n  - split: calibration\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/truck.zip\"\n  - split: test\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/truck.zip\"\n  - split: left_out_train\n    path: \"train/ship.zip\"\n  - split: left_out_calibration\n    path: \"calibration/ship.zip\"\n  - split: left_out_test\n    path: \"test/ship.zip\"\n  - split: left_out\n    path: \n    - \"train/ship.zip\"\n    - \"calibration/ship.zip\"\n    - \"test/ship.zip\"\n- config_name: no_truck\n  data_files:\n  - split: train\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n  - split: calibration\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n  - split: test\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n  - split: left_out_train\n    path: \"train/truck.zip\"\n  - split: left_out_calibration\n    path: \"calibration/truck.zip\"\n  - split: left_out_test\n    path: \"test/truck.zip\"\n  - split: left_out\n    path: \n    - \"train/truck.zip\"\n    - \"calibration/truck.zip\"\n    - \"test/truck.zip\"\n# From here, STUPID WORKAROUNDS for\n# https://discuss.huggingface.co/t/download-only-requested-split/165968\n- config_name: train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n- config_name: calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n- config_name: test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n- config_name: no_airplane_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n- config_name: airplane_train\n  data_files:\n  - split: unique_split\n    path: \"train/airplane.zip\"\n- config_name: no_airplane_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n- config_name: airplane_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/airplane.zip\"\n- config_name: no_airplane_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n- config_name: airplane_test\n  data_files:\n  - split: unique_split\n    path: \"test/airplane.zip\"\n- config_name: no_automobile_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n- config_name: automobile_train\n  data_files:\n  - split: unique_split\n    path: \"train/automobile.zip\"\n- config_name: no_automobile_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n- config_name: automobile_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/automobile.zip\"\n- config_name: no_automobile_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n- config_name: automobile_test\n  data_files:\n  - split: unique_split\n    path: \"test/automobile.zip\"\n- config_name: no_bird_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n- config_name: bird_train\n  data_files:\n  - split: unique_split\n    path: \"train/bird.zip\"\n- config_name: no_bird_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n- config_name: bird_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/bird.zip\"\n- config_name: no_bird_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n- config_name: bird_test\n  data_files:\n  - split: unique_split\n    path: \"test/bird.zip\"\n- config_name: no_cat_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n- config_name: cat_train\n  data_files:\n  - split: unique_split\n    path: \"train/cat.zip\"\n- config_name: no_cat_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n- config_name: cat_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/cat.zip\"\n- config_name: no_cat_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n- config_name: cat_test\n  data_files:\n  - split: unique_split\n    path: \"test/cat.zip\"\n- config_name: no_deer_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n- config_name: deer_train\n  data_files:\n  - split: unique_split\n    path: \"train/deer.zip\"\n- config_name: no_deer_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n- config_name: deer_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/deer.zip\"\n- config_name: no_deer_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n- config_name: deer_test\n  data_files:\n  - split: unique_split\n    path: \"test/deer.zip\"\n- config_name: no_dog_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n- config_name: dog_train\n  data_files:\n  - split: unique_split\n    path: \"train/dog.zip\"\n- config_name: no_dog_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n- config_name: dog_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/dog.zip\"\n- config_name: no_dog_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n- config_name: dog_test\n  data_files:\n  - split: unique_split\n    path: \"test/dog.zip\"\n- config_name: no_frog_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n- config_name: frog_train\n  data_files:\n  - split: unique_split\n    path: \"train/frog.zip\"\n- config_name: no_frog_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n- config_name: frog_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/frog.zip\"\n- config_name: no_frog_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n- config_name: frog_test\n  data_files:\n  - split: unique_split\n    path: \"test/frog.zip\"\n- config_name: no_horse_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/ship.zip\"\n    - \"train/truck.zip\"\n- config_name: horse_train\n  data_files:\n  - split: unique_split\n    path: \"train/horse.zip\"\n- config_name: no_horse_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/ship.zip\"\n    - \"calibration/truck.zip\"\n- config_name: horse_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/horse.zip\"\n- config_name: no_horse_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/ship.zip\"\n    - \"test/truck.zip\"\n- config_name: horse_test\n  data_files:\n  - split: unique_split\n    path: \"test/horse.zip\"\n- config_name: no_ship_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/truck.zip\"\n- config_name: ship_train\n  data_files:\n  - split: unique_split\n    path: \"train/ship.zip\"\n- config_name: no_ship_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/truck.zip\"\n- config_name: ship_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/ship.zip\"\n- config_name: no_ship_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/truck.zip\"\n- config_name: ship_test\n  data_files:\n  - split: unique_split\n    path: \"test/ship.zip\"\n- config_name: no_truck_train\n  data_files:\n  - split: unique_split\n    path:\n    - \"train/airplane.zip\"\n    - \"train/automobile.zip\"\n    - \"train/bird.zip\"\n    - \"train/cat.zip\"\n    - \"train/deer.zip\"\n    - \"train/dog.zip\"\n    - \"train/frog.zip\"\n    - \"train/horse.zip\"\n    - \"train/ship.zip\"\n- config_name: truck_train\n  data_files:\n  - split: unique_split\n    path: \"train/truck.zip\"\n- config_name: no_truck_calibration\n  data_files:\n  - split: unique_split\n    path:\n    - \"calibration/airplane.zip\"\n    - \"calibration/automobile.zip\"\n    - \"calibration/bird.zip\"\n    - \"calibration/cat.zip\"\n    - \"calibration/deer.zip\"\n    - \"calibration/dog.zip\"\n    - \"calibration/frog.zip\"\n    - \"calibration/horse.zip\"\n    - \"calibration/ship.zip\"\n- config_name: truck_calibration\n  data_files:\n  - split: unique_split\n    path: \"calibration/truck.zip\"\n- config_name: no_truck_test\n  data_files:\n  - split: unique_split\n    path:\n    - \"test/airplane.zip\"\n    - \"test/automobile.zip\"\n    - \"test/bird.zip\"\n    - \"test/cat.zip\"\n    - \"test/deer.zip\"\n    - \"test/dog.zip\"\n    - \"test/frog.zip\"\n    - \"test/horse.zip\"\n    - \"test/ship.zip\"\n- config_name: truck_test\n  data_files:\n  - split: unique_split\n    path: \"test/truck.zip\"\n---\n\n# Dataset Specifications\n\nContains the entire CIFAR10 dataset, downloaded via *PyTorch*, then split and saved as `.png` files representing 32x32 images.\n\nThere a three splits, perfectly balanced class-wise:\n\n- `train`: 49,000 out of the original 50,000 samples from the training set of CIFAR10;\n- `calibration`: 1,000 left-out samples from the training set;\n- `test`: 10,000 samples, the entire original test set.\n\n# File Structure\n\nFiles are archives `<split>/<classname>.zip`. Each `<classname>.zip` is a flat archive containing the associated images `XXXX.png`.\n\n**For a given class**, every filename `XXXX.png` is unique, with `XXXX` ranging:\n\n- from `\"0000\"` to `\"0999\"` for test samples,\n- from `\"1000\"` to `\"1099\"` for calibration samples,\n- from `\"1100\"` to `\"5999\"` for train samples.\n\n\n# Use with PyTorch\n\nAs a helper, you can use the following snippet to iterate through a specific split:\n```python\nfrom datasets import load_dataset\nfrom torch.utils.data import DataLoader\n\ndataset = load_dataset(\"ego-thales/cifar10\", name=\"no_bird_calibration\")\ndataset = dataset[\"unique_split\"]  # Comment out if you're in case 1. below\ndataloader = DataLoader(dataset.with_format(\"torch\"), batch_size=300)\nfor batch in dataloader:\n    # batch[\"images\"]:    tensor with shape `(300, 3, 32, 32)` (`torch.uint8` values between 0 and 255)\n    # batch[\"label\"]:     tensor with shape `(300,)` (`torch.int64` values between 0 and 9)\n    # batch[\"classname\"]: list of length `300` with classnames as `str`\n```\n\n## Loading arguments\n\nWhile [this question](https://discuss.huggingface.co/t/download-only-requested-split/165968/3?u=ego-thales) does not find a reasonable answer, there are two cases to consider.\n\n#### 1. If you wish to download the full dataset\n\n- `name` (Optional): Either `\"complete\"` or `\"no_<classname>\"`.\n- `split` (Optional): One of `\"train\"`, `\"calibration\"` or `\"test\"`. If `name` is of the format `\"no_<classname>\"`, then the following values are also allowed: `\"left_out_train\"`, `\"left_out_calibration\"`, `\"left_out_test\"` and `\"left_out\"` (for all left-out samples).\n\n#### 2. If you wish to only use a single split\n\nSince apparently `streaming=True` still goes through every archive to find metadata no matter the setting, as a workaround, we defined many different configuration to act as splits. So use:\n\n- `name`: One of `\"<classname>_<split>\"` or `\"no_<classname>_<split>\"` with `<split>` either `\"train\"`, `\"calibration\"` or `\"test\"`.\n- `split`: Leave empty.\n\n## Good to know\n\nThe `.zip` archives are unzipped at every iteration where they are needed. As such, we recommend using an adapted `batch_size`, accounting for the number of samples in each `data.zip`.\n",
+              "extracted_code": "from datasets import load_dataset\nfrom torch.utils.data import DataLoader\n\ndataset = load_dataset(\"ego-thales/cifar10\", name=\"no_bird_calibration\")\ndataset = dataset[\"unique_split\"]  # Comment out if you're in case 1. below\ndataloader = DataLoader(dataset.with_format(\"torch\"), batch_size=300)\nfor batch in dataloader:\n    # batch[\"images\"]:    tensor with shape `(300, 3, 32, 32)` (`torch.uint8` values between 0 and 255)\n    # batch[\"label\"]:     tensor with shape `(300,)` (`torch.int64` values between 0 and 9)\n    # batch[\"classname\"]: list of length `300` with classnames as `str`"
+            },
+            {
+              "id": "tanganke/cifar10",
+              "author": "tanganke",
+              "sha": "97b332c7b2981f9decda4ba9abac76ef18bb0636",
+              "created_at": "2024-09-23T13:11:52+00:00",
+              "last_modified": "2024-09-23T13:12:03+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 1707,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': airplane\n          '1': automobile\n          '2': bird\n          '3': cat\n          '4': deer\n          '5': dog\n          '6': frog\n          '7': horse\n          '8': ship\n          '9': truck\n  splits:\n  - name: train\n    num_bytes: 113648310.0\n    num_examples: 50000\n  - name: test\n    num_bytes: 22731580.0\n    num_examples: 10000\n  download_size: 143650937\n  dataset_size: 136379890.0\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n  - split: test\n    path: data/test-*\n---\n",
+              "extracted_code": ""
+            },
+            {
+              "id": "p2pfl/CIFAR10",
+              "author": "p2pfl",
+              "sha": "37a577cff1b1d745fa00df6b5bb742723bd480ce",
+              "created_at": "2024-08-31T10:53:33+00:00",
+              "last_modified": "2025-04-19T11:34:48+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 248,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/test-00000-of-00001.parquet"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00001.parquet"
+                }
+              ],
+              "card_data": {
+                "license": "mit",
+                "language": "en",
+                "tags": [],
+                "datasets": [],
+                "task_categories": [
+                  "image-classification"
+                ],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "task_categories:image-classification",
+                "task_ids:multi-class-image-classification",
+                "multilinguality:monolingual",
+                "language:en",
+                "license:mit",
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:pandas",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\nlanguage: en\nlicense: mit\nmultilinguality: monolingual\ntask_categories:\n- image-classification\ntask_ids:\n- multi-class-image-classification\npretty_name: CIFAR10\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  - name: label\n    dtype: int64\n  splits:\n  - name: train\n    num_bytes: 113648310.0\n    num_examples: 50000\n  - name: test\n    num_bytes: 22731580.0\n    num_examples: 10000\n  download_size: 143650519\n  dataset_size: 136379890.0\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n  - split: test\n    path: data/test-*\n---\n\n# 🖼️ CIFAR10 (Extracted from PyTorch Vision)\n\nThe CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.\n\n## ℹ️ Dataset Details\n\n## 📖 Dataset Description\n\nThe CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. The classes are completely mutually exclusive. There is no overlap between automobiles and trucks. \"Automobile\" includes sedans, SUVs, things of that sort. \"Truck\" includes only big trucks. Neither includes pickup trucks.\n\n## 📂 Dataset Structure\n\nEach data point is a pair:\n\n- **image:** A visual captured (stored as a PIL Image).\n- **label:** The corresponding label (an integer representing the class).\n\n## 🚀 How to Use this Dataset\n\n```python\nfrom datasets import load_dataset\n\ndataset = load_dataset('p2pfl/CIFAR10')\n```\n\n## 🗄️ Source Data\n\nAuto-generated from PyTorch Vision, please check the original [CIFAR10](https://www.cs.toronto.edu/~kriz/cifar.html) for more info.\n\n## 📜 License\n\nmit",
+              "extracted_code": "from datasets import load_dataset\n\ndataset = load_dataset('p2pfl/CIFAR10')"
+            },
+            {
+              "id": "bitmind/celeb-a-hq",
+              "author": "bitmind",
+              "sha": "cec732e87335bc65872d90a706e865032daf80fc",
+              "created_at": "2024-07-18T19:20:58+00:00",
+              "last_modified": "2024-07-18T19:44:26+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 913,
+              "likes": 2,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00006.parquet"
+                },
+                {
+                  "rfilename": "data/train-00001-of-00006.parquet"
+                },
+                {
+                  "rfilename": "data/train-00002-of-00006.parquet"
+                },
+                {
+                  "rfilename": "data/train-00003-of-00006.parquet"
+                },
+                {
+                  "rfilename": "data/train-00004-of-00006.parquet"
+                },
+                {
+                  "rfilename": "data/train-00005-of-00006.parquet"
+                }
+              ],
+              "card_data": {
+                "license": "cc-by-4.0",
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "license:cc-by-4.0",
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:dask",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  splits:\n  - name: train\n    num_bytes: 2923345820\n    num_examples: 30000\n  download_size: 2759993787\n  dataset_size: 2923345820\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\nlicense: cc-by-4.0\n---",
+              "extracted_code": ""
+            },
+            {
+              "id": "mattymchen/celeba-hq",
+              "author": "mattymchen",
+              "sha": "1bc5dfbeb766d03abeddf5a48b9871479a4395bb",
+              "created_at": "2023-04-26T05:15:42+00:00",
+              "last_modified": "2023-04-26T05:56:53+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 173,
+              "likes": 6,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00006-bae07ad6d4d89a77.parquet"
+                },
+                {
+                  "rfilename": "data/train-00001-of-00006-77346f9096557aa8.parquet"
+                },
+                {
+                  "rfilename": "data/train-00002-of-00006-e8a1953384ecd6a7.parquet"
+                },
+                {
+                  "rfilename": "data/train-00003-of-00006-fced104e22ee3f82.parquet"
+                },
+                {
+                  "rfilename": "data/train-00004-of-00006-80e5c44b7b2119cf.parquet"
+                },
+                {
+                  "rfilename": "data/train-00005-of-00006-2ad819c3650dbd46.parquet"
+                },
+                {
+                  "rfilename": "data/validation-00000-of-00001-a47eeed86041f01b.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:10K<n<100K",
+                "format:parquet",
+                "modality:image",
+                "library:datasets",
+                "library:dask",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  - name: label\n    dtype:\n      class_label:\n        names:\n          '0': female\n          '1': male\n  splits:\n  - name: train\n    num_bytes: 2731627350.0\n    num_examples: 28000\n  - name: validation\n    num_bytes: 197550788.0\n    num_examples: 2000\n  download_size: 2762109745\n  dataset_size: 2929178138.0\n---\n# Dataset Card for \"celeba-hq\"\n\n[More Information needed](https://github.com/huggingface/datasets/blob/main/CONTRIBUTING.md#how-to-contribute-to-the-dataset-cards)",
+              "extracted_code": ""
+            },
+            {
+              "id": "gitpull/Imagenet_64x64",
+              "author": "gitpull",
+              "sha": "217af7b2bfd11bfbadce4dc9088377d7fd85fbf9",
+              "created_at": "2024-12-27T03:28:51+00:00",
+              "last_modified": "2024-12-27T04:09:00+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 8,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "ImageNet.zip"
+                },
+                {
+                  "rfilename": "README.md"
+                }
+              ],
+              "card_data": {
+                "license": "apache-2.0",
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "license:apache-2.0",
+                "region:us"
+              ],
+              "readme": "---\r\nlicense: apache-2.0\r\n---\r\n",
+              "extracted_code": ""
+            },
+            {
+              "id": "fformosa/LSUN_bedroom_whole",
+              "author": "fformosa",
+              "sha": "b300833fb333d9be3463e0b1af4cb4b71ccfcdda",
+              "created_at": "2024-05-15T10:24:17+00:00",
+              "last_modified": "2024-05-15T10:45:39+00:00",
+              "private": false,
+              "gated": false,
+              "disabled": false,
+              "downloads": 29,
+              "likes": 0,
+              "siblings": [
+                {
+                  "rfilename": ".gitattributes"
+                },
+                {
+                  "rfilename": "README.md"
+                },
+                {
+                  "rfilename": "data/train-00000-of-00105.parquet"
+                },
+                {
+                  "rfilename": "data/train-00001-of-00105.parquet"
+                },
+                {
+                  "rfilename": "data/train-00002-of-00105.parquet"
+                },
+                {
+                  "rfilename": "data/train-00003-of-00105.parquet"
+                },
+                {
+                  "rfilename": "data/train-00004-of-00105.parquet"
+                },
+                {
+                  "rfilename": "data/train-00005-of-00105.parquet"
+                },
+                {
+                  "rfilename": "data/train-00006-of-00105.parquet"
+                },
+                {
+                  "rfilename": "data/train-00007-of-00105.parquet"
+                }
+              ],
+              "card_data": {
+                "language": [],
+                "tags": [],
+                "datasets": [],
+                "task_categories": [],
+                "size_categories": [],
+                "metrics": [],
+                "widget": []
+              },
+              "tags": [
+                "size_categories:1M<n<10M",
+                "format:parquet",
+                "modality:image",
+                "modality:text",
+                "library:datasets",
+                "library:dask",
+                "library:mlcroissant",
+                "library:polars",
+                "region:us"
+              ],
+              "readme": "---\ndataset_info:\n  features:\n  - name: image\n    dtype: image\n  - name: image_id\n    dtype: int64\n  - name: answers\n    sequence: string\n  splits:\n  - name: train\n    num_bytes: 52294743867.0\n    num_examples: 1800000\n  download_size: 52155862240\n  dataset_size: 52294743867.0\nconfigs:\n- config_name: default\n  data_files:\n  - split: train\n    path: data/train-*\n---\n",
+              "extracted_code": ""
+            }
+          ]
+        }
+      }
     }
   },
   "idea_info_history": [
