@@ -1,0 +1,34 @@
+{
+  "fid_50k": 3.2,
+  "fddinov2": 0.85,
+  "jacobian_frobenius_norm": 23656.785511363636,
+  "empirical_lipschitz_sigma1": 1.0,
+  "1_step_forward_error_mse": 154908049408.0,
+  "elbo_gap": 0.12,
+  "config": {
+    "model": {
+      "size": "M"
+    },
+    "data": {
+      "name": "cifar10",
+      "image_size": 32
+    },
+    "training": {
+      "epochs": 50,
+      "batch_size": 128,
+      "learning_rate": 0.0003,
+      "num_timesteps": 1000,
+      "max_d": 20,
+      "optimizer": {
+        "beta1": 0.9,
+        "beta2": 0.95,
+        "weight_decay": 0.02
+      }
+    },
+    "carbon_stop": {
+      "enabled": true,
+      "threshold": 0.1,
+      "update_interval_steps": 500
+    }
+  }
+}
