@@ -5,3 +5,440 @@
   publisher = {GitHub},
   url       = {https://github.com/airas-org/airas}
 }
+
+% ===========================================
+% REQUIRED CITATIONS
+% These papers must be cited in the manuscript
+% ===========================================
+
+@article{baheti-2023-leftover,
+ abstract = {Reinforcement Learning with Human Feedback (RLHF) is the most prominent
+method for Language Model (LM) alignment. However, RLHF is an unstable and
+data-hungry process that continually requires new high-quality LM-generated
+data for finetuning. We introduce Advantage-Leftover Lunch RL (A-LoL), a new
+class of offline policy gradient algorithms that enable RL training on any
+pre-existing data. By assuming the entire LM output sequence as a single
+action, A-LoL allows incorporating sequence-level classifiers or human-designed
+scoring functions as rewards. Subsequently, by using LM's value estimate, A-LoL
+only trains on positive advantage (leftover) data points, making it resilient
+to noise. Overall, A-LoL is an easy-to-implement, sample-efficient, and stable
+LM training recipe.
+  We demonstrate the effectiveness of A-LoL and its variants with a set of four
+different language generation tasks. We compare against both online RL (PPO)
+and recent preference-based (DPO, PRO) and reward-based (GOLD) offline RL
+baselines. On the commonly-used RLHF benchmark, Helpful and Harmless Assistant
+(HHA), LMs trained with A-LoL methods achieve the highest diversity while also
+being rated more safe and helpful than the baselines according to humans.
+Additionally, in the remaining three tasks, A-LoL could optimize multiple
+distinct reward functions even when using noisy or suboptimal training data.
+  We also release our experimental code. https://github.com/abaheti95/LoL-RL},
+ arxiv_url = {https://arxiv.org/pdf/2305.14718v5.pdf},
+ author = {Ashutosh Baheti and Ximing Lu and Faeze Brahman and Ronan Le Bras and Maarten Sap and Mark Riedl},
+ github_url = {https://github.com/abaheti95/LoL-RL},
+ title = {Leftover Lunch: Advantage-based Offline Reinforcement Learning for Language Models},
+ year = {2023}
+}
+
+@article{chaudhary-2025-risk,
+ abstract = {We consider the challenge of mitigating the generation of negative or toxic
+content by the Large Language Models (LLMs) in response to certain prompts. We
+propose integrating risk-averse principles into LLM fine-tuning to minimize the
+occurrence of harmful outputs, particularly rare but significant events. By
+optimizing the risk measure of Conditional Value at Risk (CVaR), our
+methodology trains LLMs to exhibit superior performance in avoiding toxic
+outputs while maintaining effectiveness in generative tasks. Empirical
+evaluations on sentiment modification and toxicity mitigation tasks demonstrate
+the efficacy of risk-averse reinforcement learning with human feedback (RLHF)
+in promoting a safer and more constructive online discourse environment.},
+ arxiv_url = {https://arxiv.org/pdf/2501.06911v1.pdf},
+ author = {Sapana Chaudhary and Ujwal Dinesha and Dileep Kalathil and Srinivas Shakkottai},
+ github_url = {https://github.com/SapanaChaudhary/RA-RLHF},
+ title = {Risk-Averse Fine-tuning of Large Language Models},
+ year = {2025}
+}
+
+@article{ethayarajh-2024-model,
+ abstract = {Kahneman & Tversky's $\textit{prospect theory}$ tells us that humans perceive
+random variables in a biased but well-defined manner (1992); for example,
+humans are famously loss-averse. We show that objectives for aligning LLMs with
+human feedback implicitly incorporate many of these biases -- the success of
+these objectives (e.g., DPO) over cross-entropy minimization can partly be
+ascribed to them belonging to a family of loss functions that we call
+$\textit{human-aware losses}$ (HALOs). However, the utility functions these
+methods attribute to humans still differ from those in the prospect theory
+literature. Using a Kahneman-Tversky model of human utility, we propose a HALO
+that directly maximizes the utility of generations instead of maximizing the
+log-likelihood of preferences, as current methods do. We call this approach
+KTO, and it matches or exceeds the performance of preference-based methods at
+scales from 1B to 30B, despite only learning from a binary signal of whether an
+output is desirable. More broadly, our work suggests that there is no one HALO
+that is universally superior; the best loss depends on the inductive biases
+most appropriate for a given setting, an oft-overlooked consideration.},
+ arxiv_url = {https://arxiv.org/pdf/2402.01306v4.pdf},
+ author = {Kawin Ethayarajh and Winnie Xu and Niklas Muennighoff and Dan Jurafsky and Douwe Kiela},
+ title = {Model Alignment as Prospect Theoretic Optimization},
+ year = {2024}
+}
+
+@article{furuta-2024-geometric,
+ abstract = {Many algorithms for aligning LLMs with human preferences assume that human
+preferences are binary and deterministic. However, human preferences can vary
+across individuals, and therefore should be represented distributionally. In
+this work, we introduce the distributional soft preference labels and improve
+Direct Preference Optimization (DPO) with a weighted geometric average of the
+LLM output likelihood in the loss function. This approach adjusts the scale of
+learning loss based on the soft labels such that the loss would approach zero
+when the responses are closer to equally preferred. This simple modification
+can be easily applied to any DPO-based methods and mitigate over-optimization
+and objective mismatch, which prior works suffer from. Our experiments simulate
+the soft preference labels with AI feedback from LLMs and demonstrate that
+geometric averaging consistently improves performance on standard benchmarks
+for alignment research. In particular, we observe more preferable responses
+than binary labels and significant improvements where modestly-confident labels
+are in the majority.},
+ arxiv_url = {https://arxiv.org/pdf/2409.06691v3.pdf},
+ author = {Hiroki Furuta and Kuang-Huei Lee and Shixiang Shane Gu and Yutaka Matsuo and Aleksandra Faust and Heiga Zen and Izzeddin Gur},
+ title = {Geometric-Averaged Preference Optimization for Soft Preference Labels},
+ year = {2024}
+}
+
+@article{guo-2023-beyond,
+ abstract = {Alignment with human preference is a desired property of large language
+models (LLMs). Currently, the main alignment approach is based on reinforcement
+learning from human feedback (RLHF). Despite the effectiveness of RLHF, it is
+intricate to implement and train, thus recent studies explore how to develop
+alternative alignment approaches based on supervised fine-tuning (SFT). A major
+limitation of SFT is that it essentially does imitation learning, which cannot
+fully understand what are the expected behaviors. To address this issue, we
+propose an improved alignment approach named FIGA. Different from prior
+methods, we incorporate fine-grained (i.e., token or phrase level) quality
+signals that are derived by contrasting good and bad responses. Our approach
+has made two major contributions. Firstly, we curate a refined alignment
+dataset that pairs initial responses and the corresponding revised ones.
+Secondly, we devise a new loss function can leverage fine-grained quality
+signals to instruct the learning of LLMs for alignment. Extensive experiments
+have demonstrated the effectiveness of our approaches by comparing a number of
+competitive baselines.},
+ arxiv_url = {https://arxiv.org/pdf/2311.04072v2.pdf},
+ author = {Geyang Guo and Ranchi Zhao and Tianyi Tang and Wayne Xin Zhao and Ji-Rong Wen},
+ github_url = {https://github.com/RUCAIBox/FIGA},
+ title = {Beyond Imitation: Leveraging Fine-grained Quality Signals for Alignment},
+ year = {2023}
+}
+
+@article{lin-2021-straight,
+ abstract = {Advanced large-scale neural language models have led to significant success
+in many language generation tasks. However, the most commonly used training
+objective, Maximum Likelihood Estimation (MLE), has been shown problematic,
+where the trained model prefers using dull and repetitive phrases. In this
+work, we introduce ScaleGrad, a modification straight to the gradient of the
+loss function, to remedy the degeneration issue of the standard MLE objective.
+By directly maneuvering the gradient information, ScaleGrad makes the model
+learn to use novel tokens. Empirical results show the effectiveness of our
+method not only in open-ended generation, but also in directed generation
+tasks. With the simplicity in architecture, our method can serve as a general
+training objective that is applicable to most of the neural text generation
+tasks.},
+ arxiv_url = {https://arxiv.org/pdf/2106.07207v1.pdf},
+ author = {Xiang Lin and Simeng Han and Shafiq Joty},
+ github_url = {https://github.com/shawnlimn/ScaleGrad},
+ title = {Straight to the Gradient: Learning to Use Novel Tokens for Neural Text Generation},
+ year = {2021}
+}
+
+@article{lin-2024-selecting,
+ abstract = {The ever-growing ecosystem of LLMs has posed a challenge in selecting the
+most appropriate pre-trained model to fine-tune amidst a sea of options. Given
+constrained resources, fine-tuning all models and making selections afterward
+is unrealistic. In this work, we formulate this resource-constrained selection
+task into predicting fine-tuning performance and illustrate its natural
+connection with Scaling Law. Unlike pre-training, we find that the fine-tuning
+scaling curve includes not just the well-known "power phase" but also the
+previously unobserved "pre-power phase". We also explain why existing Scaling
+Law fails to capture this phase transition phenomenon both theoretically and
+empirically. To address this, we introduce the concept of "pre-learned data
+size" into our Rectified Scaling Law, which overcomes theoretical limitations
+and fits experimental results much better. By leveraging our law, we propose a
+novel LLM selection algorithm that selects the near-optimal model with hundreds
+of times less resource consumption, while other methods may provide negatively
+correlated selection. The project page is available at
+rectified-scaling-law.github.io.},
+ arxiv_url = {https://arxiv.org/pdf/2402.02314v3.pdf},
+ author = {Haowei Lin and Baizhou Huang and Haotian Ye and Qinyu Chen and Zihao Wang and Sujian Li and Jianzhu Ma and Xiaojun Wan and James Zou and Yitao Liang},
+ journal = {ICML 2024},
+ title = {Selecting Large Language Model to Fine-tune via Rectified Scaling Law},
+ year = {2024}
+}
+
+@article{lu-2024-discovering,
+ abstract = {Offline preference optimization is a key method for enhancing and controlling
+the quality of Large Language Model (LLM) outputs. Typically, preference
+optimization is approached as an offline supervised learning task using
+manually-crafted convex loss functions. While these methods are based on
+theoretical insights, they are inherently constrained by human creativity, so
+the large search space of possible loss functions remains under explored. We
+address this by performing LLM-driven objective discovery to automatically
+discover new state-of-the-art preference optimization algorithms without
+(expert) human intervention. Specifically, we iteratively prompt an LLM to
+propose and implement new preference optimization loss functions based on
+previously-evaluated performance metrics. This process leads to the discovery
+of previously-unknown and performant preference optimization algorithms. The
+best performing of these we call Discovered Preference Optimization (DiscoPOP),
+a novel algorithm that adaptively blends logistic and exponential losses.
+Experiments demonstrate the state-of-the-art performance of DiscoPOP and its
+successful transfer to held-out tasks.},
+ arxiv_url = {https://arxiv.org/pdf/2406.08414v3.pdf},
+ author = {Chris Lu and Samuel Holt and Claudio Fanconi and Alex J. Chan and Jakob Foerster and Mihaela van der Schaar and Robert Tjarko Lange},
+ github_url = {https://github.com/tatsu-lab/alpaca_eval},
+ title = {Discovering Preference Optimization Algorithms with and for Large Language Models},
+ year = {2024}
+}
+
+@article{malinovskii-2024-tuning,
+ abstract = {There has been significant interest in "extreme" compression of large
+language models (LLMs), i.e., to 1-2 bits per parameter, which allows such
+models to be executed efficiently on resource-constrained devices. Existing
+work focused on improved one-shot quantization techniques and weight
+representations; yet, purely post-training approaches are reaching diminishing
+returns in terms of the accuracy-vs-bit-width trade-off. State-of-the-art
+quantization methods such as QuIP# and AQLM include fine-tuning (part of) the
+compressed parameters over a limited amount of calibration data; however, such
+fine-tuning techniques over compressed weights often make exclusive use of
+straight-through estimators (STE), whose performance is not well-understood in
+this setting. In this work, we question the use of STE for extreme LLM
+compression, showing that it can be sub-optimal, and perform a systematic study
+of quantization-aware fine-tuning strategies for LLMs. We propose PV-Tuning - a
+representation-agnostic framework that generalizes and improves upon existing
+fine-tuning strategies, and provides convergence guarantees in restricted
+cases. On the practical side, when used for 1-2 bit vector quantization,
+PV-Tuning outperforms prior techniques for highly-performant models such as
+Llama and Mistral. Using PV-Tuning, we achieve the first Pareto-optimal
+quantization for Llama 2 family models at 2 bits per parameter.},
+ arxiv_url = {https://arxiv.org/pdf/2405.14852v2.pdf},
+ author = {Vladimir Malinovskii and Denis Mazur and Ivan Ilin and Denis Kuznedelev and Konstantin Burlachenko and Kai Yi and Dan Alistarh and Peter Richtarik},
+ github_url = {https://github.com/Vahe1994/AQLM},
+ title = {PV-Tuning: Beyond Straight-Through Estimation for Extreme LLM Compression},
+ year = {2024}
+}
+
+@article{shao-2023-beyond,
+ abstract = {Maximum likelihood estimation (MLE) is a statistical method used to estimate
+the parameters of a probability distribution that best explain the observed
+data. In the context of text generation, MLE is often used to train generative
+language models, which can then be used to generate new text. However, we argue
+that MLE is not always necessary and optimal, especially for closed-ended text
+generation tasks like machine translation. In these tasks, the goal of model is
+to generate the most appropriate response, which does not necessarily require
+it to estimate the entire data distribution with MLE. To this end, we propose a
+novel class of training objectives based on convex functions, which enables
+text generation models to focus on highly probable outputs without having to
+estimate the entire data distribution. We investigate the theoretical
+properties of the optimal predicted distribution when applying convex functions
+to the loss, demonstrating that convex functions can sharpen the optimal
+distribution, thereby enabling the model to better capture outputs with high
+probabilities. Experiments on various text generation tasks and models show the
+effectiveness of our approach. It enables autoregressive models to bridge the
+gap between greedy and beam search, and facilitates the learning of
+non-autoregressive models with a maximum improvement of 9+ BLEU points.
+Moreover, our approach also exhibits significant impact on large language
+models (LLMs), substantially enhancing their generative capability on various
+tasks. Source code is available at
+\url{https://github.com/ictnlp/Convex-Learning}.},
+ arxiv_url = {https://arxiv.org/pdf/2310.17217v1.pdf},
+ author = {Chenze Shao and Zhengrui Ma and Min Zhang and Yang Feng},
+ github_url = {https://github.com/ictnlp/Convex-Learning},
+ title = {Beyond MLE: Convex Learning for Text Generation},
+ year = {2023}
+}
+
+@article{shao-2024-language,
+ abstract = {Language generation based on maximum likelihood estimation (MLE) has become
+the fundamental approach for text generation. Maximum likelihood estimation is
+typically performed by minimizing the log-likelihood loss, also known as the
+logarithmic score in statistical decision theory. The logarithmic score is
+strictly proper in the sense that it encourages honest forecasts, where the
+expected score is maximized only when the model reports true probabilities.
+Although many strictly proper scoring rules exist, the logarithmic score is the
+only local scoring rule among them that depends exclusively on the probability
+of the observed sample, making it capable of handling the exponentially large
+sample space of natural text. In this work, we propose a straightforward
+strategy for adapting scoring rules to language generation, allowing for
+language modeling with any non-local scoring rules. Leveraging this strategy,
+we train language generation models using two classic strictly proper scoring
+rules, the Brier score and the Spherical score, as alternatives to the
+logarithmic score. Experimental results indicate that simply substituting the
+loss function, without adjusting other hyperparameters, can yield substantial
+improvements in model's generation capabilities. Moreover, these improvements
+can scale up to large language models (LLMs) such as LLaMA-7B and LLaMA-13B.
+Source code: \url{https://github.com/shaochenze/ScoringRulesLM}.},
+ arxiv_url = {https://arxiv.org/pdf/2405.18906v1.pdf},
+ author = {Chenze Shao and Fandong Meng and Yijin Liu and Jie Zhou},
+ title = {Language Generation with Strictly Proper Scoring Rules},
+ year = {2024}
+}
+
+@article{tajwar-2024-preference,
+ abstract = {Learning from preference labels plays a crucial role in fine-tuning large
+language models. There are several distinct approaches for preference
+fine-tuning, including supervised learning, on-policy reinforcement learning
+(RL), and contrastive learning. Different methods come with different
+implementation tradeoffs and performance differences, and existing empirical
+findings present different conclusions, for instance, some results show that
+online RL is quite important to attain good fine-tuning results, while others
+find (offline) contrastive or even purely supervised methods sufficient. This
+raises a natural question: what kind of approaches are important for
+fine-tuning with preference data and why? In this paper, we answer this
+question by performing a rigorous analysis of a number of fine-tuning
+techniques on didactic and full-scale LLM problems. Our main finding is that,
+in general, approaches that use on-policy sampling or attempt to push down the
+likelihood on certain responses (i.e., employ a "negative gradient") outperform
+offline and maximum likelihood objectives. We conceptualize our insights and
+unify methods that use on-policy sampling or negative gradient under a notion
+of mode-seeking objectives for categorical distributions. Mode-seeking
+objectives are able to alter probability mass on specific bins of a categorical
+distribution at a fast rate compared to maximum likelihood, allowing them to
+relocate masses across bins more effectively. Our analysis prescribes
+actionable insights for preference fine-tuning of LLMs and informs how data
+should be collected for maximal improvement.},
+ arxiv_url = {https://arxiv.org/pdf/2404.14367v3.pdf},
+ author = {Fahim Tajwar and Anikait Singh and Archit Sharma and Rafael Rafailov and Jeff Schneider and Tengyang Xie and Stefano Ermon and Chelsea Finn and Aviral Kumar},
+ github_url = {https://github.com/ContextualAI/HALOs},
+ title = {Preference Fine-Tuning of LLMs Should Leverage Suboptimal, On-Policy Data},
+ year = {2024}
+}
+
+@article{tian-2023-fine,
+ abstract = {The fluency and creativity of large pre-trained language models (LLMs) have
+led to their widespread use, sometimes even as a replacement for traditional
+search engines. Yet language models are prone to making convincing but
+factually inaccurate claims, often referred to as 'hallucinations.' These
+errors can inadvertently spread misinformation or harmfully perpetuate
+misconceptions. Further, manual fact-checking of model responses is a
+time-consuming process, making human factuality labels expensive to acquire. In
+this work, we fine-tune language models to be more factual, without human
+labeling and targeting more open-ended generation settings than past work. We
+leverage two key recent innovations in NLP to do so. First, several recent
+works have proposed methods for judging the factuality of open-ended text by
+measuring consistency with an external knowledge base or simply a large model's
+confidence scores. Second, the direct preference optimization algorithm enables
+straightforward fine-tuning of language models on objectives other than
+supervised imitation, using a preference ranking over possible model responses.
+We show that learning from automatically generated factuality preference
+rankings, generated either through existing retrieval systems or our novel
+retrieval-free approach, significantly improves the factuality (percent of
+generated claims that are correct) of Llama-2 on held-out topics compared with
+RLHF or decoding strategies targeted at factuality. At 7B scale, compared to
+Llama-2-chat, we observe 58% and 40% reduction in factual error rate when
+generating biographies and answering medical questions, respectively.},
+ arxiv_url = {https://arxiv.org/pdf/2311.08401v1.pdf},
+ author = {Katherine Tian and Eric Mitchell and Huaxiu Yao and Christopher D. Manning and Chelsea Finn},
+ title = {Fine-Tuning Language Models for Factuality},
+ year = {2023}
+}
+
+@article{wu-2023-fine,
+ abstract = {Language models (LMs) often exhibit undesirable text generation behaviors,
+including generating false, toxic, or irrelevant outputs. Reinforcement
+learning from human feedback (RLHF) - where human preference judgments on LM
+outputs are transformed into a learning signal - has recently shown promise in
+addressing these issues. However, such holistic feedback conveys limited
+information on long text outputs; it does not indicate which aspects of the
+outputs influenced user preference; e.g., which parts contain what type(s) of
+errors. In this paper, we use fine-grained human feedback (e.g., which sentence
+is false, which sub-sentence is irrelevant) as an explicit training signal. We
+introduce Fine-Grained RLHF, a framework that enables training and learning
+from reward functions that are fine-grained in two respects: (1) density,
+providing a reward after every segment (e.g., a sentence) is generated; and (2)
+incorporating multiple reward models associated with different feedback types
+(e.g., factual incorrectness, irrelevance, and information incompleteness). We
+conduct experiments on detoxification and long-form question answering to
+illustrate how learning with such reward functions leads to improved
+performance, supported by both automatic and human evaluation. Additionally, we
+show that LM behaviors can be customized using different combinations of
+fine-grained reward models. We release all data, collected human feedback, and
+codes at https://FineGrainedRLHF.github.io.},
+ arxiv_url = {https://arxiv.org/pdf/2306.01693v2.pdf},
+ author = {Zeqiu Wu and Yushi Hu and Weijia Shi and Nouha Dziri and Alane Suhr and Prithviraj Ammanabrolu and Noah A. Smith and Mari Ostendorf and Hannaneh Hajishirzi},
+ github_url = {https://github.com/conversationai/perspectiveapi},
+ title = {Fine-Grained Human Feedback Gives Better Rewards for Language Model Training},
+ year = {2023}
+}
+
+@article{zeng-2024-token,
+ abstract = {Fine-tuning pre-trained Large Language Models (LLMs) is essential to align
+them with human values and intentions. This process often utilizes methods like
+pairwise comparisons and KL divergence against a reference LLM, focusing on the
+evaluation of full answers generated by the models. However, the generation of
+these responses occurs in a token level, following a sequential,
+auto-regressive fashion. In this paper, we introduce Token-level Direct
+Preference Optimization (TDPO), a novel approach to align LLMs with human
+preferences by optimizing policy at the token level. Unlike previous methods,
+which face challenges in divergence efficiency, TDPO incorporates forward KL
+divergence constraints for each token, improving alignment and diversity.
+Utilizing the Bradley-Terry model for a token-based reward system, TDPO
+enhances the regulation of KL divergence, while preserving simplicity without
+the need for explicit reward modeling. Experimental results across various text
+tasks demonstrate TDPO's superior performance in balancing alignment with
+generation diversity. Notably, fine-tuning with TDPO strikes a better balance
+than DPO in the controlled sentiment generation and single-turn dialogue
+datasets, and significantly improves the quality of generated responses
+compared to both DPO and PPO-based RLHF methods. Our code is open-sourced at
+https://github.com/Vance0124/Token-level-Direct-Preference-Optimization.},
+ arxiv_url = {https://arxiv.org/pdf/2404.11999v5.pdf},
+ author = {Yongcheng Zeng and Guoqing Liu and Weiyu Ma and Ning Yang and Haifeng Zhang and Jun Wang},
+ title = {Token-level Direct Preference Optimization},
+ year = {2024}
+}
+
+@article{zhang-2024-revisiting,
+ abstract = {In the evolving landscape of natural language processing (NLP), fine-tuning
+pre-trained Large Language Models (LLMs) with first-order (FO) optimizers like
+SGD and Adam has become standard. Yet, as LLMs grow {in size}, the substantial
+memory overhead from back-propagation (BP) for FO gradient computation presents
+a significant challenge. Addressing this issue is crucial, especially for
+applications like on-device training where memory efficiency is paramount. This
+paper proposes a shift towards BP-free, zeroth-order (ZO) optimization as a
+solution for reducing memory costs during LLM fine-tuning, building on the
+initial concept introduced by MeZO. Unlike traditional ZO-SGD methods, our work
+expands the exploration to a wider array of ZO optimization techniques, through
+a comprehensive, first-of-its-kind benchmarking study across five LLM families
+(Roberta, OPT, LLaMA, Vicuna, Mistral), three task complexities, and five
+fine-tuning schemes. Our study unveils previously overlooked optimization
+principles, highlighting the importance of task alignment, the role of the
+forward gradient method, and the balance between algorithm complexity and
+fine-tuning performance. We further introduce novel enhancements to ZO
+optimization, including block-wise descent, hybrid training, and gradient
+sparsity. Our study offers a promising direction for achieving further
+memory-efficient LLM fine-tuning. Codes to reproduce all our experiments are at
+https://github.com/ZO-Bench/ZO-LLM .},
+ arxiv_url = {https://arxiv.org/pdf/2402.11592v3.pdf},
+ author = {Yihua Zhang and Pingzhi Li and Junyuan Hong and Jiaxiang Li and Yimeng Zhang and Wenqing Zheng and Pin-Yu Chen and Jason D. Lee and Wotao Yin and Mingyi Hong and Zhangyang Wang and Sijia Liu and Tianlong Chen},
+ title = {Revisiting Zeroth-Order Optimization for Memory-Efficient LLM Fine-Tuning: A Benchmark},
+ year = {2024}
+}
+
+@article{zhang-2024-when,
+ abstract = {While large language models (LLMs) often adopt finetuning to unlock their
+capabilities for downstream applications, our understanding on the inductive
+biases (especially the scaling properties) of different finetuning methods is
+still limited. To fill this gap, we conduct systematic experiments studying
+whether and how different scaling factors, including LLM model size,
+pretraining data size, new finetuning parameter size and finetuning data size,
+affect the finetuning performance. We consider two types of finetuning --
+full-model tuning (FMT) and parameter efficient tuning (PET, including prompt
+tuning and LoRA), and explore their scaling behaviors in the data-limited
+regime where the LLM model size substantially outweighs the finetuning data
+size. Based on two sets of pretrained bilingual LLMs from 1B to 16B and
+experiments on bilingual machine translation and multilingual summarization
+benchmarks, we find that 1) LLM finetuning follows a powerbased multiplicative
+joint scaling law between finetuning data size and each other scaling factor;
+2) LLM finetuning benefits more from LLM model scaling than pretraining data
+scaling, and PET parameter scaling is generally ineffective; and 3) the optimal
+finetuning method is highly task- and finetuning data-dependent. We hope our
+findings could shed light on understanding, selecting and developing LLM
+finetuning methods.},
+ arxiv_url = {https://arxiv.org/pdf/2402.17193v1.pdf},
+ author = {Biao Zhang and Zhongtao Liu and Colin Cherry and Orhan Firat},
+ title = {When Scaling Meets LLM Finetuning: The Effect of Data, Model and Finetuning Method},
+ year = {2024}
+}
