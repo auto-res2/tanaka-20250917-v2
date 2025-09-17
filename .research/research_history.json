@@ -4,5 +4,79 @@
     "拡散モデル 損失関数 改善",
     "denoising diffusion loss",
     "DDPM loss weighting"
+  ],
+  "research_study_list": [
+    {
+      "title": "Analyzing and Improving the Training Dynamics of Diffusion Models"
+    },
+    {
+      "title": "Analyzing and Improving the Training Dynamics of Diffusion Models"
+    },
+    {
+      "title": "DiffEnc: Variational Diffusion with a Learned Encoder"
+    },
+    {
+      "title": "Improved Denoising Diffusion Probabilistic Models"
+    },
+    {
+      "title": "Cold Diffusion: Inverting Arbitrary Image Transforms Without Noise"
+    },
+    {
+      "title": "Stable Target Field for Reduced Variance Score Estimation in Diffusion Models"
+    },
+    {
+      "title": "Understanding Diffusion Objectives as the ELBO with Simple Data Augmentation"
+    },
+    {
+      "title": "Understanding Diffusion Objectives as the ELBO with Simple Data Augmentation"
+    },
+    {
+      "title": "On Analyzing Generative and Denoising Capabilities of Diffusion-based Deep Generative Models"
+    },
+    {
+      "title": "Understanding Diffusion Objectives as the ELBO with Simple Data Augmentation"
+    },
+    {
+      "title": "Understanding Diffusion Objectives as the ELBO with Simple Data Augmentation"
+    },
+    {
+      "title": "Loss-Guided Diffusion Models for Plug-and-Play Controllable Generation"
+    },
+    {
+      "title": "Denoising Diffusion Samplers"
+    },
+    {
+      "title": "Information-Theoretic Diffusion"
+    },
+    {
+      "title": "Generalization in diffusion models arises from geometry-adaptive harmonic representations"
+    },
+    {
+      "title": "Generalization in diffusion models arises from geometry-adaptive harmonic representations"
+    },
+    {
+      "title": "You Only Train Once: Loss-Conditional Training of Deep Networks"
+    },
+    {
+      "title": "Input Perturbation Reduces Exposure Bias in Diffusion Models"
+    },
+    {
+      "title": "DiffEnc: Variational Diffusion with a Learned Encoder"
+    },
+    {
+      "title": "Understanding Diffusion Objectives as the ELBO with Simple Data Augmentation"
+    },
+    {
+      "title": "Understanding Diffusion Objectives as the ELBO with Simple Data Augmentation"
+    },
+    {
+      "title": "Improved Denoising Diffusion Probabilistic Models"
+    },
+    {
+      "title": "Structured Denoising Diffusion Models in Discrete State-Spaces"
+    },
+    {
+      "title": "Efficient Denoising Diffusion via Probabilistic Masking"
+    }
   ]
 }
