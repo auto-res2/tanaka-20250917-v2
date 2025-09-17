@@ -1,0 +1,39 @@
+# smoke_test.yaml: Small-scale configuration for quick validation.
+
+seeds: [42]
+
+# Use a single, smaller model for speed
+models: 
+  - "unsloth/mistral-7b-instruct-v0.3-bnb-4bit"
+
+# Dummy dataset paths, assuming small subsets are loaded
+datasets:
+  train: "TailMix-small"
+  validation: "CalibTail-Mix-small"
+  calibration_stream: "wikipedia-small"
+
+training:
+  epochs: 1
+  lr: 2.0e-5
+  warmup_updates: 10
+  grad_acc_steps: 1
+  lora:
+    rank: 4
+    alpha: 8
+
+generation:
+  temperature: 0.7
+  top_p: 0.95
+  max_new_tokens: 64 # Generate short sequences
+
+evaluation:
+  num_prompts_per_slice: 5 # Few prompts per data slice
+  alpha: [0.1] # Test a single alpha value
+  risk_dial_alphas: [0.05, 0.15] # Test two unseen alphas
+
+streaming_quantile:
+  q: 0.9
+  max_k: 1000 # Smaller window for the test
+
+spectral_weight:
+  tau: 1.0

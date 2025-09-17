@@ -1,0 +1,44 @@
+# full_experiment.yaml: Full-scale configuration for complete experimental runs.
+
+seeds: [42, 43, 44]
+
+models: 
+  - "unsloth/mistral-7b-instruct-v0.3-bnb-4bit"
+  - "unsloth/llama-3-8b-Instruct-bnb-4bit"
+
+# Actual dataset names/paths for loading
+datasets:
+  train: "TailMix"
+  validation: "CalibTail-Mix"
+  calibration_stream: "wikipedia-10k-stream"
+  test_slices:
+    calib_tail_mix: "CalibTail-Mix-test"
+    med_leg_chem: "MedLegChem"
+    lang_shift: "LangShift"
+    ultra_long: "UltraLong"
+
+training:
+  epochs: 3 # 2 training epochs + 1 for something else as per doc
+  lr: 2.0e-5
+  warmup_updates: 200
+  grad_acc_steps: 4
+  lora:
+    rank: 16
+    alpha: 32
+
+generation:
+  temperature: 0.7
+  top_p: 0.95
+  max_new_tokens: 4096
+
+evaluation:
+  num_prompts_per_slice: 1000 # A more realistic number of prompts for evaluation
+  alpha: [0.001, 0.01, 0.1]
+  risk_dial_alphas: [0.005, 0.02, 0.07, 0.15, 0.25]
+
+streaming_quantile:
+  q: 0.9 # Corresponds to alpha=0.1 target, can be adjusted
+  max_k: 5000
+
+spectral_weight:
+  tau: 1.0
