@@ -30,7 +30,7 @@ def run_experiment(config_path):
         return
 
     # Create result directories
-    os.makedirs(".research/iteration2/images", exist_ok=True)
+    os.makedirs(".research/iteration3/images", exist_ok=True)
 
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f"Using device: {device}")
@@ -71,7 +71,7 @@ def run_experiment(config_path):
             
             # --- SAVE RESULTS ---
             timestamp = time.strftime("%Y%m%d-%H%M%S")
-            result_filename = f".research/iteration2/results_{model_name.replace('/', '_')}_seed{seed}_{timestamp}.json"
+            result_filename = f".research/iteration3/results_{model_name.replace('/', '_')}_seed{seed}_{timestamp}.json"
             try:
                 with open(result_filename, 'w') as f:
                     # Convert numpy arrays/means to lists for JSON serialization

@@ -142,7 +142,7 @@ def run_exp3_ablation(model, config, device):
         results[variant] = {'brier_score': brier, 'ece': ece, 'coverage': coverage}
         
         fig = reliability_diagram(y_true, y_prob)
-        fig_path = f'.research/iteration2/images/reliability_{variant}.png'
+        fig_path = f'.research/iteration3/images/reliability_{variant}.png'
         fig.savefig(fig_path)
         print(f"Saved reliability diagram to {fig_path}")
         plt.close(fig)
