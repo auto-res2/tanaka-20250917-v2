@@ -1,0 +1,1664 @@
+=== [PHASE 2/2] Full experiment start Wed Sep 17 02:59:08 AM UTC 2025 ===
+--- Starting Full Experiment ---
+Using device: cuda
+Loading and preprocessing data (simulated)...
+Data loading and preprocessing complete.
+
+==================================================
+RUNNING EXPERIMENT FOR SEED: 42
+==================================================
+
+--- Model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit ---
+trainable params: 13,631,488 || all params: 7,261,655,040 || trainable%: 0.1877
+
+--- Starting Dummy Training Epoch ---
+Model training epoch completed (simulated). The real process would involve a full RLHF loop.
+--- Dummy Training Epoch Finished ---
+
+
+--- Running Experiment 1: Large-scale Coverage & Excess-Risk Stress-Test ---
+{
+  "experiment_1_results": {
+    "CalibTail-Mix": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979443603515625,
+          0.00013822530560721275
+        ],
+        "excess_risk": [
+          0.998266666453455,
+          2.2646719295176847e-05
+        ],
+        "latency_ms": [
+          4.003287810059848,
+          0.03647949209467993
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974648193359375,
+          0.0001437243580705356
+        ],
+        "excess_risk": [
+          0.9848615418960283,
+          5.659289847637037e-05
+        ],
+        "latency_ms": [
+          4.034946122687658,
+          0.036617477968131654
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899390380859375,
+          0.00018624897295964072
+        ],
+        "excess_risk": [
+          0.849732612716818,
+          0.00017232214429008954
+        ],
+        "latency_ms": [
+          3.9900270901363646,
+          0.03593923049691027
+        ]
+      }
+    ],
+    "MedLegChem": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979312255859375,
+          0.00013520745791712317
+        ],
+        "excess_risk": [
+          0.9982694111599958,
+          2.1858652928515182e-05
+        ],
+        "latency_ms": [
+          3.996295522745145,
+          0.03578502608489578
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974464111328125,
+          0.00014251011038532207
+        ],
+        "excess_risk": [
+          0.9849254943126433,
+          5.428267798296453e-05
+        ],
+        "latency_ms": [
+          4.014709232826742,
+          0.035816366251446456
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.8994443359375,
+          0.00018512116383237687
+        ],
+        "excess_risk": [
+          0.849720833381441,
+          0.00017328341497718872
+        ],
+        "latency_ms": [
+          3.985224401272947,
+          0.03611708202807542
+        ]
+      }
+    ],
+    "LangShift": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979338134765625,
+          0.00013439874113914746
+        ],
+        "excess_risk": [
+          0.9982592610210645,
+          2.3357944990458555e-05
+        ],
+        "latency_ms": [
+          4.017069312287266,
+          0.03576468193730425
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.97472265625,
+          0.00013943613529063603
+        ],
+        "excess_risk": [
+          0.9848839217081342,
+          5.8241431073940324e-05
+        ],
+        "latency_ms": [
+          3.9932363884223414,
+          0.03602753530088012
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899378662109375,
+          0.00018704563695955972
+        ],
+        "excess_risk": [
+          0.8498943381114843,
+          0.00016939956660587296
+        ],
+        "latency_ms": [
+          4.022844265674403,
+          0.0354352752493348
+        ]
+      }
+    ],
+    "UltraLong": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.97943701171875,
+          0.00013287038000878967
+        ],
+        "excess_risk": [
+          0.9982909967145644,
+          2.037523998007905e-05
+        ],
+        "latency_ms": [
+          4.016669733852058,
+          0.036114243797458645
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974620361328125,
+          0.0001428128817865436
+        ],
+        "excess_risk": [
+          0.984874650547222,
+          5.7254238278762557e-05
+        ],
+        "latency_ms": [
+          4.008849042541672,
+          0.03562805307896824
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.8993408203125,
+          0.0001910850153306368
+        ],
+        "excess_risk": [
+          0.849766422355448,
+          0.0001712003622262337
+        ],
+        "latency_ms": [
+          4.004583725831508,
+          0.03501765020456339
+        ]
+      }
+    ]
+  }
+}
+
+--- Running Experiment 2: Zero-Back-Prop Risk-Dial Generalisation ---
+{
+  "experiment_2_results": {
+    "alpha_star_0.005": [
+      {
+        "coverage": 0.977294921875,
+        "excess_risk": 0.9909572020528898,
+        "risk_dial_latency_ms": 75.21587371826172
+      }
+    ],
+    "alpha_star_0.02": [
+      {
+        "coverage": 0.96337890625,
+        "excess_risk": 0.9686915685282075,
+        "risk_dial_latency_ms": 0.37990400195121765
+      }
+    ],
+    "alpha_star_0.07": [
+      {
+        "coverage": 0.924072265625,
+        "excess_risk": 0.8926279335435015,
+        "risk_dial_latency_ms": 0.27750399708747864
+      }
+    ],
+    "alpha_star_0.15": [
+      {
+        "coverage": 0.846435546875,
+        "excess_risk": 0.7733270520889884,
+        "risk_dial_latency_ms": 0.2826240062713623
+      }
+    ],
+    "alpha_star_0.25": [
+      {
+        "coverage": 0.750244140625,
+        "excess_risk": 0.6210412818400581,
+        "risk_dial_latency_ms": 0.27033600211143494
+      }
+    ]
+  }
+}
+
+--- Running Experiment 3: Marginal Mis-calibration & Ablation Study ---
+Saved reliability diagram to .research/iteration3/images/reliability_full_CoVeR_SPO.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_isotonic.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_conformal.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_both.png
+{
+  "experiment_3_results": {
+    "full_CoVeR_SPO": {
+      "brier_score": 0.017988927138508734,
+      "ece": 0.23179417811748224,
+      "coverage": 0.8957018217630798
+    },
+    "no_isotonic": {
+      "brier_score": 0.05720351581057245,
+      "ece": 0.21383195532223143,
+      "coverage": 0.6830711377348084
+    },
+    "no_conformal": {
+      "brier_score": 0.10552802318815051,
+      "ece": 0.13837795929693666,
+      "coverage": 0.8447689833265641
+    },
+    "no_both": {
+      "brier_score": 0.15484859781403604,
+      "ece": 0.03441498356224207,
+      "coverage": 0.6684419859737077
+    }
+  }
+}
+Results for seed 42 and model unsloth/mistral-7b-instruct-v0.3-bnb-4bit saved to .research/iteration3/results_unsloth_mistral-7b-instruct-v0.3-bnb-4bit_seed42_20250917-025925.json
+
+--- Model: unsloth/llama-3-8b-Instruct-bnb-4bit ---
+trainable params: 13,631,488 || all params: 8,043,892,736 || trainable%: 0.1695
+
+--- Starting Dummy Training Epoch ---
+Model training epoch completed (simulated). The real process would involve a full RLHF loop.
+--- Dummy Training Epoch Finished ---
+
+
+--- Running Experiment 1: Large-scale Coverage & Excess-Risk Stress-Test ---
+{
+  "experiment_1_results": {
+    "CalibTail-Mix": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979417724609375,
+          0.0001364878671284588
+        ],
+        "excess_risk": [
+          0.9982545317445864,
+          2.2246384241154875e-05
+        ],
+        "latency_ms": [
+          4.0177019235799305,
+          0.03686634915905145
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.97458251953125,
+          0.00014554178328208075
+        ],
+        "excess_risk": [
+          0.9848774726846168,
+          5.703658586787766e-05
+        ],
+        "latency_ms": [
+          4.00758743185735,
+          0.03620170326307578
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899365234375,
+          0.0001952303025266672
+        ],
+        "excess_risk": [
+          0.8497004653963808,
+          0.00016917707567640138
+        ],
+        "latency_ms": [
+          4.012206635352768,
+          0.03631161326222111
+        ]
+      }
+    ],
+    "MedLegChem": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979436279296875,
+          0.0001348473510522715
+        ],
+        "excess_risk": [
+          0.9982677608215501,
+          2.246158739559442e-05
+        ],
+        "latency_ms": [
+          3.9969686504159854,
+          0.03628143621527515
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974663330078125,
+          0.00014156966309050717
+        ],
+        "excess_risk": [
+          0.984891264725511,
+          5.44184822663202e-05
+        ],
+        "latency_ms": [
+          4.009747121954648,
+          0.036051247539562466
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.89950830078125,
+          0.00019087147823208646
+        ],
+        "excess_risk": [
+          0.8498220770341479,
+          0.00017445107022331086
+        ],
+        "latency_ms": [
+          3.998144350650954,
+          0.03530911622468896
+        ]
+      }
+    ],
+    "LangShift": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979513427734375,
+          0.000132067792534503
+        ],
+        "excess_risk": [
+          0.9982617549202112,
+          2.1947549200027295e-05
+        ],
+        "latency_ms": [
+          4.010479222562257,
+          0.03617016008999341
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974488037109375,
+          0.0001485604337102936
+        ],
+        "excess_risk": [
+          0.9848737160308456,
+          5.718435877988847e-05
+        ],
+        "latency_ms": [
+          4.006333414943912,
+          0.03453613256120803
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899441650390625,
+          0.0001987480878953066
+        ],
+        "excess_risk": [
+          0.8498494949377741,
+          0.00017292852705434603
+        ],
+        "latency_ms": [
+          4.018709655194363,
+          0.036288636584571564
+        ]
+      }
+    ],
+    "UltraLong": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.97947607421875,
+          0.00014260090377293103
+        ],
+        "excess_risk": [
+          0.9982664604261513,
+          2.2030588368377213e-05
+        ],
+        "latency_ms": [
+          3.984274777628485,
+          0.035645261362983426
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974500244140625,
+          0.0001424457821052924
+        ],
+        "excess_risk": [
+          0.9848644781281478,
+          5.5275562727194434e-05
+        ],
+        "latency_ms": [
+          4.023074141978061,
+          0.03650809452780968
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899423828125,
+          0.00019244152065871675
+        ],
+        "excess_risk": [
+          0.8497834634033568,
+          0.00017714985448897928
+        ],
+        "latency_ms": [
+          3.9874595063957066,
+          0.03490819562084396
+        ]
+      }
+    ]
+  }
+}
+
+--- Running Experiment 2: Zero-Back-Prop Risk-Dial Generalisation ---
+{
+  "experiment_2_results": {
+    "alpha_star_0.005": [
+      {
+        "coverage": 0.977783203125,
+        "excess_risk": 0.9917794709961398,
+        "risk_dial_latency_ms": 0.6686720252037048
+      }
+    ],
+    "alpha_star_0.02": [
+      {
+        "coverage": 0.96533203125,
+        "excess_risk": 0.9702482336234768,
+        "risk_dial_latency_ms": 0.4915199875831604
+      }
+    ],
+    "alpha_star_0.07": [
+      {
+        "coverage": 0.9306640625,
+        "excess_risk": 0.8989687851191233,
+        "risk_dial_latency_ms": 0.43929600715637207
+      }
+    ],
+    "alpha_star_0.15": [
+      {
+        "coverage": 0.845458984375,
+        "excess_risk": 0.7729012892718647,
+        "risk_dial_latency_ms": 0.3983359932899475
+      }
+    ],
+    "alpha_star_0.25": [
+      {
+        "coverage": 0.750244140625,
+        "excess_risk": 0.6234134221173531,
+        "risk_dial_latency_ms": 0.392192006111145
+      }
+    ]
+  }
+}
+
+--- Running Experiment 3: Marginal Mis-calibration & Ablation Study ---
+Saved reliability diagram to .research/iteration3/images/reliability_full_CoVeR_SPO.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_isotonic.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_conformal.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_both.png
+{
+  "experiment_3_results": {
+    "full_CoVeR_SPO": {
+      "brier_score": 0.020685766876524618,
+      "ece": 0.21249674393763587,
+      "coverage": 0.8888138659826599
+    },
+    "no_isotonic": {
+      "brier_score": 0.06286887644675178,
+      "ece": 0.17463887377757176,
+      "coverage": 0.6955785729128718
+    },
+    "no_conformal": {
+      "brier_score": 0.09396757219643352,
+      "ece": 0.143999639204016,
+      "coverage": 0.7841320364185107
+    },
+    "no_both": {
+      "brier_score": 0.1530172852673552,
+      "ece": 0.05023036242080844,
+      "coverage": 0.660645299182777
+    }
+  }
+}
+Results for seed 42 and model unsloth/llama-3-8b-Instruct-bnb-4bit saved to .research/iteration3/results_unsloth_llama-3-8b-Instruct-bnb-4bit_seed42_20250917-030043.json
+
+==================================================
+RUNNING EXPERIMENT FOR SEED: 43
+==================================================
+
+--- Model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit ---
+trainable params: 13,631,488 || all params: 7,261,655,040 || trainable%: 0.1877
+
+--- Starting Dummy Training Epoch ---
+Model training epoch completed (simulated). The real process would involve a full RLHF loop.
+--- Dummy Training Epoch Finished ---
+
+
+--- Running Experiment 1: Large-scale Coverage & Excess-Risk Stress-Test ---
+{
+  "experiment_1_results": {
+    "CalibTail-Mix": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.97948779296875,
+          0.00013712579077598897
+        ],
+        "excess_risk": [
+          0.9982745078255971,
+          2.2835772264638384e-05
+        ],
+        "latency_ms": [
+          3.9935230427145982,
+          0.03552095272711111
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.9745576171875,
+          0.00014883937222675344
+        ],
+        "excess_risk": [
+          0.98491413770075,
+          5.642393312335812e-05
+        ],
+        "latency_ms": [
+          4.023343148595947,
+          0.035611231218144586
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899478271484375,
+          0.00018616028158730381
+        ],
+        "excess_risk": [
+          0.8497226839500897,
+          0.00017093060080246758
+        ],
+        "latency_ms": [
+          4.016586783992725,
+          0.03662871812423494
+        ]
+      }
+    ],
+    "MedLegChem": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979339111328125,
+          0.00013931346235388032
+        ],
+        "excess_risk": [
+          0.9982581854192215,
+          2.2927600761531216e-05
+        ],
+        "latency_ms": [
+          3.981086092212508,
+          0.03633366227724615
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974486572265625,
+          0.0001422931175892821
+        ],
+        "excess_risk": [
+          0.9848617670425848,
+          5.60308846905992e-05
+        ],
+        "latency_ms": [
+          4.005771846977656,
+          0.03566296742012725
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.8994267578125,
+          0.00018830615576562014
+        ],
+        "excess_risk": [
+          0.8497722398661617,
+          0.0001723755325577728
+        ],
+        "latency_ms": [
+          3.986318079741527,
+          0.03598279157109479
+        ]
+      }
+    ],
+    "LangShift": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.97942724609375,
+          0.0001340070414942415
+        ],
+        "excess_risk": [
+          0.9982576683535788,
+          2.2693419974979426e-05
+        ],
+        "latency_ms": [
+          4.010916812964276,
+          0.03566597084606218
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974545654296875,
+          0.0001384739757071879
+        ],
+        "excess_risk": [
+          0.9848561707282397,
+          5.69052703822629e-05
+        ],
+        "latency_ms": [
+          4.006902417280794,
+          0.035340524539757716
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.8995908203125,
+          0.00019190197522572102
+        ],
+        "excess_risk": [
+          0.8496553169843378,
+          0.0001659341749674464
+        ],
+        "latency_ms": [
+          3.995168418195753,
+          0.03580294315360537
+        ]
+      }
+    ],
+    "UltraLong": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979232177734375,
+          0.00013728076995555777
+        ],
+        "excess_risk": [
+          0.9982864606481722,
+          2.202484667907405e-05
+        ],
+        "latency_ms": [
+          3.965521812029245,
+          0.03623573054576276
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.97462109375,
+          0.00014387772119747014
+        ],
+        "excess_risk": [
+          0.9848714221317055,
+          5.686758191901679e-05
+        ],
+        "latency_ms": [
+          3.97051997807512,
+          0.035155532404575564
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.89936474609375,
+          0.0001832967960417028
+        ],
+        "excess_risk": [
+          0.8499033875509485,
+          0.00017135737469460178
+        ],
+        "latency_ms": [
+          4.010949107416938,
+          0.03497343531499478
+        ]
+      }
+    ]
+  }
+}
+
+--- Running Experiment 2: Zero-Back-Prop Risk-Dial Generalisation ---
+{
+  "experiment_2_results": {
+    "alpha_star_0.005": [
+      {
+        "coverage": 0.98095703125,
+        "excess_risk": 0.9927698727569754,
+        "risk_dial_latency_ms": 0.5079039931297302
+      }
+    ],
+    "alpha_star_0.02": [
+      {
+        "coverage": 0.966552734375,
+        "excess_risk": 0.9695579887794328,
+        "risk_dial_latency_ms": 0.32256001234054565
+      }
+    ],
+    "alpha_star_0.07": [
+      {
+        "coverage": 0.9287109375,
+        "excess_risk": 0.8927397037276836,
+        "risk_dial_latency_ms": 0.27033600211143494
+      }
+    ],
+    "alpha_star_0.15": [
+      {
+        "coverage": 0.845947265625,
+        "excess_risk": 0.7766492485948349,
+        "risk_dial_latency_ms": 0.26521599292755127
+      }
+    ],
+    "alpha_star_0.25": [
+      {
+        "coverage": 0.7490234375,
+        "excess_risk": 0.6270746031245776,
+        "risk_dial_latency_ms": 0.2672640085220337
+      }
+    ]
+  }
+}
+
+--- Running Experiment 3: Marginal Mis-calibration & Ablation Study ---
+Saved reliability diagram to .research/iteration3/images/reliability_full_CoVeR_SPO.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_isotonic.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_conformal.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_both.png
+{
+  "experiment_3_results": {
+    "full_CoVeR_SPO": {
+      "brier_score": 0.019360079204074183,
+      "ece": 0.2127272632325042,
+      "coverage": 0.9181652054636371
+    },
+    "no_isotonic": {
+      "brier_score": 0.06028835809220827,
+      "ece": 0.1977299175755258,
+      "coverage": 0.749103162224818
+    },
+    "no_conformal": {
+      "brier_score": 0.10143661599536444,
+      "ece": 0.14168539910415875,
+      "coverage": 0.7739435804790892
+    },
+    "no_both": {
+      "brier_score": 0.1522566311726468,
+      "ece": 0.036050243871674506,
+      "coverage": 0.8072606970274144
+    }
+  }
+}
+Results for seed 43 and model unsloth/mistral-7b-instruct-v0.3-bnb-4bit saved to .research/iteration3/results_unsloth_mistral-7b-instruct-v0.3-bnb-4bit_seed43_20250917-030052.json
+
+--- Model: unsloth/llama-3-8b-Instruct-bnb-4bit ---
+trainable params: 13,631,488 || all params: 8,043,892,736 || trainable%: 0.1695
+
+--- Starting Dummy Training Epoch ---
+Model training epoch completed (simulated). The real process would involve a full RLHF loop.
+--- Dummy Training Epoch Finished ---
+
+
+--- Running Experiment 1: Large-scale Coverage & Excess-Risk Stress-Test ---
+{
+  "experiment_1_results": {
+    "CalibTail-Mix": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.97944384765625,
+          0.00014086081801808177
+        ],
+        "excess_risk": [
+          0.9982621540647951,
+          2.2442552269816914e-05
+        ],
+        "latency_ms": [
+          3.9974439592608553,
+          0.035894989172297435
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.9745302734375,
+          0.00014306527647721986
+        ],
+        "excess_risk": [
+          0.9848429018394779,
+          5.813016702340101e-05
+        ],
+        "latency_ms": [
+          3.992579892453853,
+          0.03685487069485242
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.89952734375,
+          0.00018809826102259992
+        ],
+        "excess_risk": [
+          0.8497943838659607,
+          0.0001757653806056469
+        ],
+        "latency_ms": [
+          3.9987548672961895,
+          0.03581906947998641
+        ]
+      }
+    ],
+    "MedLegChem": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979435791015625,
+          0.00013530242072010522
+        ],
+        "excess_risk": [
+          0.9982584455746303,
+          2.293140654322544e-05
+        ],
+        "latency_ms": [
+          4.010952080580931,
+          0.036767591453220894
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.97449462890625,
+          0.00014519660455138044
+        ],
+        "excess_risk": [
+          0.9848250001442496,
+          5.5674760730798744e-05
+        ],
+        "latency_ms": [
+          3.977162935937662,
+          0.036328356016615986
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.89936083984375,
+          0.00018885877492517936
+        ],
+        "excess_risk": [
+          0.8499158823181651,
+          0.00016641366519482738
+        ],
+        "latency_ms": [
+          4.031765177994623,
+          0.03548666249229574
+        ]
+      }
+    ],
+    "LangShift": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.9793046875,
+          0.0001396480975211282
+        ],
+        "excess_risk": [
+          0.9982733988709355,
+          2.2284689880508428e-05
+        ],
+        "latency_ms": [
+          4.001049303099607,
+          0.035441530572934324
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974570068359375,
+          0.00014445573221323252
+        ],
+        "excess_risk": [
+          0.9848124532290259,
+          5.615090809435173e-05
+        ],
+        "latency_ms": [
+          3.983717497676825,
+          0.036064071818400094
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899458251953125,
+          0.00019055538342407365
+        ],
+        "excess_risk": [
+          0.8498050229028966,
+          0.00017153733754109933
+        ],
+        "latency_ms": [
+          3.997164457074183,
+          0.03628140503848228
+        ]
+      }
+    ],
+    "UltraLong": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.9793974609375,
+          0.00012973519360705234
+        ],
+        "excess_risk": [
+          0.9982576263821183,
+          2.114730747922674e-05
+        ],
+        "latency_ms": [
+          3.979568624514916,
+          0.03524074620494457
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.9744765625,
+          0.00014388759591776106
+        ],
+        "excess_risk": [
+          0.9848577350297889,
+          5.767915340575392e-05
+        ],
+        "latency_ms": [
+          4.0094868545310325,
+          0.03649200526660559
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899373779296875,
+          0.00019220461115038626
+        ],
+        "excess_risk": [
+          0.8497761824373808,
+          0.00016701906988122314
+        ],
+        "latency_ms": [
+          4.00300866600715,
+          0.03557610649148891
+        ]
+      }
+    ]
+  }
+}
+
+--- Running Experiment 2: Zero-Back-Prop Risk-Dial Generalisation ---
+{
+  "experiment_2_results": {
+    "alpha_star_0.005": [
+      {
+        "coverage": 0.9794921875,
+        "excess_risk": 0.9920178929439861,
+        "risk_dial_latency_ms": 0.4976640045642853
+      }
+    ],
+    "alpha_star_0.02": [
+      {
+        "coverage": 0.96875,
+        "excess_risk": 0.970566463055522,
+        "risk_dial_latency_ms": 0.30720001459121704
+      }
+    ],
+    "alpha_star_0.07": [
+      {
+        "coverage": 0.932861328125,
+        "excess_risk": 0.8954804557638498,
+        "risk_dial_latency_ms": 0.26214399933815
+      }
+    ],
+    "alpha_star_0.15": [
+      {
+        "coverage": 0.856201171875,
+        "excess_risk": 0.773268244183848,
+        "risk_dial_latency_ms": 0.25702399015426636
+      }
+    ],
+    "alpha_star_0.25": [
+      {
+        "coverage": 0.74658203125,
+        "excess_risk": 0.6207361099569431,
+        "risk_dial_latency_ms": 0.2744320034980774
+      }
+    ]
+  }
+}
+
+--- Running Experiment 3: Marginal Mis-calibration & Ablation Study ---
+Saved reliability diagram to .research/iteration3/images/reliability_full_CoVeR_SPO.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_isotonic.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_conformal.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_both.png
+{
+  "experiment_3_results": {
+    "full_CoVeR_SPO": {
+      "brier_score": 0.01804031497124371,
+      "ece": 0.21454398219109613,
+      "coverage": 0.9065459873923578
+    },
+    "no_isotonic": {
+      "brier_score": 0.0608068314864103,
+      "ece": 0.20199382572602712,
+      "coverage": 0.7939969443031716
+    },
+    "no_conformal": {
+      "brier_score": 0.10246082888319137,
+      "ece": 0.13787687449022754,
+      "coverage": 0.750561759579237
+    },
+    "no_both": {
+      "brier_score": 0.14393018225453733,
+      "ece": 0.0613643282999237,
+      "coverage": 0.7306737085118554
+    }
+  }
+}
+Results for seed 43 and model unsloth/llama-3-8b-Instruct-bnb-4bit saved to .research/iteration3/results_unsloth_llama-3-8b-Instruct-bnb-4bit_seed43_20250917-030101.json
+
+==================================================
+RUNNING EXPERIMENT FOR SEED: 44
+==================================================
+
+--- Model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit ---
+trainable params: 13,631,488 || all params: 7,261,655,040 || trainable%: 0.1877
+
+--- Starting Dummy Training Epoch ---
+Model training epoch completed (simulated). The real process would involve a full RLHF loop.
+--- Dummy Training Epoch Finished ---
+
+
+--- Running Experiment 1: Large-scale Coverage & Excess-Risk Stress-Test ---
+{
+  "experiment_1_results": {
+    "CalibTail-Mix": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979543701171875,
+          0.00013828436661691664
+        ],
+        "excess_risk": [
+          0.9982827975856753,
+          2.1502762645490527e-05
+        ],
+        "latency_ms": [
+          4.003369464982353,
+          0.035010243987156936
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.97446728515625,
+          0.0001392750350503537
+        ],
+        "excess_risk": [
+          0.9849303392668483,
+          5.5912007154576284e-05
+        ],
+        "latency_ms": [
+          3.9986992755421387,
+          0.03553026612356284
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.8996162109375,
+          0.0001890508541664765
+        ],
+        "excess_risk": [
+          0.8498865926810119,
+          0.00016426248251136526
+        ],
+        "latency_ms": [
+          3.999189480956761,
+          0.03589340654283579
+        ]
+      }
+    ],
+    "MedLegChem": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.97955712890625,
+          0.00013283606901132668
+        ],
+        "excess_risk": [
+          0.9982726882432356,
+          2.2963623771701785e-05
+        ],
+        "latency_ms": [
+          3.9835508642308604,
+          0.036507664198042675
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.9745380859375,
+          0.000143680404086309
+        ],
+        "excess_risk": [
+          0.9848598130921016,
+          5.8300331898550345e-05
+        ],
+        "latency_ms": [
+          4.003207228838512,
+          0.03513346577278016
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.89952001953125,
+          0.00018641053551170326
+        ],
+        "excess_risk": [
+          0.8498424014470685,
+          0.00016801429084043701
+        ],
+        "latency_ms": [
+          3.9871360446227246,
+          0.035917862920338335
+        ]
+      }
+    ],
+    "LangShift": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979509033203125,
+          0.00013496118571518234
+        ],
+        "excess_risk": [
+          0.9982623857580588,
+          2.3138160155281843e-05
+        ],
+        "latency_ms": [
+          3.9805420920171217,
+          0.0364956509403229
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.97445458984375,
+          0.0001451878569611248
+        ],
+        "excess_risk": [
+          0.9848583402630506,
+          5.66152635500445e-05
+        ],
+        "latency_ms": [
+          3.9934453961913285,
+          0.03566664401816104
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.89959326171875,
+          0.00018756895421396453
+        ],
+        "excess_risk": [
+          0.8498978342626851,
+          0.00016931512564078552
+        ],
+        "latency_ms": [
+          3.981918152862405,
+          0.036020524249043805
+        ]
+      }
+    ],
+    "UltraLong": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979405517578125,
+          0.00014021848753278693
+        ],
+        "excess_risk": [
+          0.9982787418944274,
+          2.3399611915053178e-05
+        ],
+        "latency_ms": [
+          3.9957320740846907,
+          0.03477250693680794
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.97428857421875,
+          0.00014765092441224243
+        ],
+        "excess_risk": [
+          0.9849099887076097,
+          5.6384691829154106e-05
+        ],
+        "latency_ms": [
+          4.006550628280708,
+          0.03569944331793521
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899520751953125,
+          0.00019002158693740554
+        ],
+        "excess_risk": [
+          0.8498805651850556,
+          0.0001727287101898333
+        ],
+        "latency_ms": [
+          4.019710549294006,
+          0.035591355507865366
+        ]
+      }
+    ]
+  }
+}
+
+--- Running Experiment 2: Zero-Back-Prop Risk-Dial Generalisation ---
+{
+  "experiment_2_results": {
+    "alpha_star_0.005": [
+      {
+        "coverage": 0.977783203125,
+        "excess_risk": 0.9918588238739423,
+        "risk_dial_latency_ms": 0.5058559775352478
+      }
+    ],
+    "alpha_star_0.02": [
+      {
+        "coverage": 0.9658203125,
+        "excess_risk": 0.9698667507644909,
+        "risk_dial_latency_ms": 0.3092480003833771
+      }
+    ],
+    "alpha_star_0.07": [
+      {
+        "coverage": 0.933837890625,
+        "excess_risk": 0.8947826290521044,
+        "risk_dial_latency_ms": 0.26214399933815
+      }
+    ],
+    "alpha_star_0.15": [
+      {
+        "coverage": 0.847900390625,
+        "excess_risk": 0.7835035121796283,
+        "risk_dial_latency_ms": 0.2529279887676239
+      }
+    ],
+    "alpha_star_0.25": [
+      {
+        "coverage": 0.740234375,
+        "excess_risk": 0.6196686056346614,
+        "risk_dial_latency_ms": 0.24985599517822266
+      }
+    ]
+  }
+}
+
+--- Running Experiment 3: Marginal Mis-calibration & Ablation Study ---
+Saved reliability diagram to .research/iteration3/images/reliability_full_CoVeR_SPO.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_isotonic.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_conformal.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_both.png
+{
+  "experiment_3_results": {
+    "full_CoVeR_SPO": {
+      "brier_score": 0.018638318156895085,
+      "ece": 0.2139507775674823,
+      "coverage": 0.900061400059723
+    },
+    "no_isotonic": {
+      "brier_score": 0.058228713299354515,
+      "ece": 0.20027385709198944,
+      "coverage": 0.7660771617873967
+    },
+    "no_conformal": {
+      "brier_score": 0.10524771413693598,
+      "ece": 0.11851105072120313,
+      "coverage": 0.8465848325837673
+    },
+    "no_both": {
+      "brier_score": 0.1496105371598083,
+      "ece": 0.059874019052020035,
+      "coverage": 0.7605494225880151
+    }
+  }
+}
+Results for seed 44 and model unsloth/mistral-7b-instruct-v0.3-bnb-4bit saved to .research/iteration3/results_unsloth_mistral-7b-instruct-v0.3-bnb-4bit_seed44_20250917-030110.json
+
+--- Model: unsloth/llama-3-8b-Instruct-bnb-4bit ---
+trainable params: 13,631,488 || all params: 8,043,892,736 || trainable%: 0.1695
+
+--- Starting Dummy Training Epoch ---
+Model training epoch completed (simulated). The real process would involve a full RLHF loop.
+--- Dummy Training Epoch Finished ---
+
+
+--- Running Experiment 1: Large-scale Coverage & Excess-Risk Stress-Test ---
+{
+  "experiment_1_results": {
+    "CalibTail-Mix": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979458740234375,
+          0.00013646114667053484
+        ],
+        "excess_risk": [
+          0.9982719848690257,
+          2.1966453687345334e-05
+        ],
+        "latency_ms": [
+          3.9991178769331897,
+          0.03586996219920299
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974564208984375,
+          0.00014875731982303572
+        ],
+        "excess_risk": [
+          0.9848616086349621,
+          5.5977367484015334e-05
+        ],
+        "latency_ms": [
+          3.9936835076709527,
+          0.035243574594699616
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.8995537109375,
+          0.0001790931508368314
+        ],
+        "excess_risk": [
+          0.8500522651511706,
+          0.00017337369246804183
+        ],
+        "latency_ms": [
+          3.9736071535596893,
+          0.036009473113412294
+        ]
+      }
+    ],
+    "MedLegChem": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.97933984375,
+          0.00013583202157822294
+        ],
+        "excess_risk": [
+          0.9982509841190242,
+          2.2917232825731023e-05
+        ],
+        "latency_ms": [
+          4.002986804929949,
+          0.03586512728650105
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974459228515625,
+          0.00014463192660507288
+        ],
+        "excess_risk": [
+          0.9848479910986078,
+          5.7450754997854485e-05
+        ],
+        "latency_ms": [
+          3.965232959006497,
+          0.03681463394153889
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.8993173828125,
+          0.0001844177106928945
+        ],
+        "excess_risk": [
+          0.8497927215860318,
+          0.00017950329096831234
+        ],
+        "latency_ms": [
+          3.98170808518526,
+          0.035121825767665774
+        ]
+      }
+    ],
+    "LangShift": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.979454833984375,
+          0.00013762745215710478
+        ],
+        "excess_risk": [
+          0.9982366520420765,
+          2.377619429102284e-05
+        ],
+        "latency_ms": [
+          3.9923761100740895,
+          0.036365012872904355
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.97455517578125,
+          0.000141933179480118
+        ],
+        "excess_risk": [
+          0.9848554907517305,
+          5.737921710537628e-05
+        ],
+        "latency_ms": [
+          4.0383198058045595,
+          0.03597368250960936
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.8994375,
+          0.00018455320795790386
+        ],
+        "excess_risk": [
+          0.8498006011039023,
+          0.00017387347799954954
+        ],
+        "latency_ms": [
+          4.0048363928509785,
+          0.03598883908727657
+        ]
+      }
+    ],
+    "UltraLong": [
+      {
+        "alpha": 0.001,
+        "coverage": [
+          0.97944921875,
+          0.00013363085052172443
+        ],
+        "excess_risk": [
+          0.9982713531933773,
+          2.2671173292722925e-05
+        ],
+        "latency_ms": [
+          4.001636403729842,
+          0.03533699054136655
+        ]
+      },
+      {
+        "alpha": 0.01,
+        "coverage": [
+          0.974485595703125,
+          0.00014267363521167144
+        ],
+        "excess_risk": [
+          0.9848578384082034,
+          5.9368720361094836e-05
+        ],
+        "latency_ms": [
+          3.985526043891312,
+          0.03655775155182497
+        ]
+      },
+      {
+        "alpha": 0.1,
+        "coverage": [
+          0.899378662109375,
+          0.000188610132223601
+        ],
+        "excess_risk": [
+          0.8498132100384594,
+          0.00017438912802134719
+        ],
+        "latency_ms": [
+          4.020729834327814,
+          0.03558408873750784
+        ]
+      }
+    ]
+  }
+}
+
+--- Running Experiment 2: Zero-Back-Prop Risk-Dial Generalisation ---
+{
+  "experiment_2_results": {
+    "alpha_star_0.005": [
+      {
+        "coverage": 0.97705078125,
+        "excess_risk": 0.9916209114026225,
+        "risk_dial_latency_ms": 0.4935680031776428
+      }
+    ],
+    "alpha_star_0.02": [
+      {
+        "coverage": 0.964599609375,
+        "excess_risk": 0.9706235249424686,
+        "risk_dial_latency_ms": 0.31539198756217957
+      }
+    ],
+    "alpha_star_0.07": [
+      {
+        "coverage": 0.925537109375,
+        "excess_risk": 0.8955373483487881,
+        "risk_dial_latency_ms": 0.2682879865169525
+      }
+    ],
+    "alpha_star_0.15": [
+      {
+        "coverage": 0.8525390625,
+        "excess_risk": 0.7815086842674348,
+        "risk_dial_latency_ms": 0.25600001215934753
+      }
+    ],
+    "alpha_star_0.25": [
+      {
+        "coverage": 0.74609375,
+        "excess_risk": 0.6288191456034222,
+        "risk_dial_latency_ms": 0.2672640085220337
+      }
+    ]
+  }
+}
+
+--- Running Experiment 3: Marginal Mis-calibration & Ablation Study ---
+Saved reliability diagram to .research/iteration3/images/reliability_full_CoVeR_SPO.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_isotonic.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_conformal.png
+Saved reliability diagram to .research/iteration3/images/reliability_no_both.png
+{
+  "experiment_3_results": {
+    "full_CoVeR_SPO": {
+      "brier_score": 0.018354489968635705,
+      "ece": 0.21276081901884866,
+      "coverage": 0.8820003615588913
+    },
+    "no_isotonic": {
+      "brier_score": 0.0608846114727644,
+      "ece": 0.20128768659942703,
+      "coverage": 0.7114814929973844
+    },
+    "no_conformal": {
+      "brier_score": 0.10701668010970669,
+      "ece": 0.1317487556206487,
+      "coverage": 0.6527464607651828
+    },
+    "no_both": {
+      "brier_score": 0.1440881080248687,
+      "ece": 0.05929967317353537,
+      "coverage": 0.6937685872252503
+    }
+  }
+}
+Results for seed 44 and model unsloth/llama-3-8b-Instruct-bnb-4bit saved to .research/iteration3/results_unsloth_llama-3-8b-Instruct-bnb-4bit_seed44_20250917-030119.json
+
+All experiments completed.
+=== [PHASE 2/2] Full experiment end Wed Sep 17 03:01:20 AM UTC 2025 ===
