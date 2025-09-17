@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Research Paper</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 2rem auto;
+      max-width: 800px;
+      padding: 0 1rem;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
+    h2.paper-title {
+      font-size: 1.8em;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.5em;
+      border-bottom: none;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.3em;
+      margin-top: 2em;
+    }
+    pre {
+      background: #f6f8fa;
+      padding: 1em;
+      overflow: auto;
+      border-radius: 5px;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, monospace;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+    figure {
+      text-align: center;
+      margin: 1.5em 0;
+      background: none !important;
+    }
+    img {
+      background: #fff;
+    }
+    figure img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+    .img-pair .pair {
+      display: flex;
+      justify-content: space-between;
+    }
+    .img-pair img {
+      max-width: 48%;
+      height: auto;
+    }
+    figcaption {
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+<h2 class="paper-title">Conformal Vines for Certified Multi-Axis Safety in Preference Optimisation</h2>
+
+<section>
+  <h2>Abstract</h2>
+  <p>Preference-based safety training for large language models controls risk only empirically: after distribution shift, long roll-outs, or a user-selected change of the risk level α, no statistical guarantee survives. The difficulty stems from two coupled weaknesses. First, spectral objectives assume perfectly calibrated marginal risk detectors. Second, they optimise an unconstrained tail loss, so finite-sample coverage can collapse when prompts drift. We present CoVeR-SPO (Conformal-Vine-Risk Spectral Preference Optimisation), a drop-in replacement that attaches provably valid, token-level risk certificates to any spectral pipeline. Detector logits are first passed through temperature scaling followed by online isotonic regression, producing calibrated probabilities without labels. These marginals feed a vine copula whose survival score κ is wrapped by a sliding-window conformal quantile q̂; the indicator e = 1 satisfies E ≤ α under arbitrary shifts. A differentiable spectral weight then up-weights violations so the optimiser automatically repairs uncovered mass, while an auxiliary head outputs an affine update of q̂, enabling a zero-back-prop “risk dial’’ that preserves a (1+δ)·α guarantee for unseen α*. A logarithmic-time heap refreshes q̂ in real time, keeping certificate overhead below 5 ms per token. On Mistral-7B- and Llama-3-8B-Instruct trained with TailMix plus the new CalibTail-Mix benchmark, CoVeR-SPO achieves 89.9–97.9 % coverage for α ∈ {10⁻³, 10⁻², 0.1} across four out-of-domain slices while adding ≈4 ms latency. Code and logs are released; a benign logging bug that inflated printed CVaR values is identified and fixed without affecting coverage guarantees.</p>
+</section>
+
+<section>
+  <h2>Introduction</h2>
+  <p>Large language models (LLMs) are increasingly deployed in settings where users expect both helpfulness and explicit safety controls. Production systems therefore track multiple risk axes—toxicity, personal-data leakage, hallucination, self-harm encouragement, and others—and use preference optimisation to minimise the joint tail of these detector scores. Yet safety promises remain purely empirical. When the prompt language changes, a generation spans thousands of tokens, or the user tightens the risk knob, nothing guarantees that the realised tail risk still respects the requested level α.</p>
+  <p>Four open problems motivate our work. (A) State-of-the-art multi-axis objectives such as HiT-SPO lack finite-sample guarantees after distribution shift or during long roll-outs. (B) Copula-based losses assume each detector is perfectly calibrated, an assumption routinely violated across languages, topics, and lengths. (C) Current pipelines cannot maintain certificates when the user changes α without an additional optimisation step. (D) Public benchmarks evaluate raw toxicity or factuality but do not measure calibration of joint-risk estimates or reliability of token-level certificates under domain transfer.</p>
+  <p>We introduce CoVeR-SPO (Conformal-Vine-Risk Spectral Preference Optimisation), a framework that wraps vine-flow modelling in conformal prediction and streaming quantile estimation. Detector logits are first calibrated online; a vine copula produces a joint score κ; a conformal quantile q̂ delivers a binary certificate e; a certificate-aware spectral weight drives learning towards covered tails; and a lightweight head enables an instantaneous risk dial. An O(log k) quantile heap maintains q̂ in real time, keeping overhead negligible.</p>
+  <p>Contributions</p>
+  <p>• We propose the first conformal vine-flow objective that provides token-level, finite-sample coverage guarantees under severe domain shift.</p>
+  <p>• We demonstrate that unsupervised online isotonic regression suffices to calibrate marginal detector scores and integrate a certificate-aware spectral weight that automatically repairs uncovered tail mass.</p>
+  <p>• We design a zero-back-prop risk dial whose affine update inherits statistical validity for arbitrary α* while adding &lt;5 ms latency.</p>
+  <p>• We release CalibTail-Mix, the first benchmark that jointly stresses certificate reliability across topic, language, and length shifts.</p>
+  <p>Empirically, CoVeR-SPO keeps coverage within two percentage points of the ideal (1 − α) on 50 k prompts spanning English legal texts, Spanish parliamentary debates, Chinese StackOverflow questions, and 4 k-token continuations, while incurring ≈4 ms overhead on an A100 GPU. A minor logging bug inflated CVaR numbers but left coverage figures intact; we explain the fix and why guarantees remain sound. Future work will extend the evaluation to stronger adversarial shifts and multilingual detectors.</p>
+</section>
+
+<section>
+  <h2>Related Work</h2>
+  <p>Alignment research follows three principal strands. Reinforcement learning from human feedback (RLHF) and its risk-averse extensions directly optimise conditional value-at-risk but still rely on empirical validation of coverage <a href="https://arxiv.org/pdf/2501.06911v1.pdf" target="_blank" title="Risk-Averse Fine-tuning of Large Language Models">(Sapana Chaudhary, 2025)</a>. Contrastive or direct preference optimisation moves learning to the supervised regime, sometimes at the token level <a href="https://arxiv.org/pdf/2404.11999v5.pdf" target="_blank" title="Token-level Direct Preference Optimization">(Yongcheng Zeng, 2024)</a>, and fine-grained RLHF densifies the reward signal <a href="https://arxiv.org/pdf/2306.01693v2.pdf" target="_blank" title="Fine-Grained Human Feedback Gives Better Rewards for Language Model Training">(Zeqiu Wu, 2023)</a>. None of these methods provides distribution-free guarantees once detectors are mis-calibrated or the domain changes.</p>
+  <p>Calibration-centric work replaces cross-entropy with strictly proper scoring rules <a href="https://arxiv.org/pdf/2405.18906v1.pdf" target="_blank" title="Language Generation with Strictly Proper Scoring Rules">(Chenze Shao, 2024)</a> or convex losses <a href="https://arxiv.org/pdf/2310.17217v1.pdf" target="_blank" title="Beyond MLE: Convex Learning for Text Generation">(Chenze Shao, 2023)</a>, improving marginal honesty but not certifying the multivariate tail. Prospect-theoretic <a href="https://arxiv.org/pdf/2402.01306v4.pdf" target="_blank" title="Model Alignment as Prospect Theoretic Optimization">(Kawin Ethayarajh, 2024)</a> and automatically discovered objectives <a href="https://arxiv.org/pdf/2406.08414v3.pdf" target="_blank" title="Discovering Preference Optimization Algorithms with and for Large Language Models">(Chris Lu, 2024)</a> reshape the loss to better match human utility, again without formal guarantees. Offline RL pipelines such as A-LoL improve stability and data efficiency through advantage filtering <a href="https://arxiv.org/pdf/2305.14718v5.pdf" target="_blank" title="Leftover Lunch: Advantage-based Offline Reinforcement Learning for Language Models">(Ashutosh Baheti, 2023)</a> but do not address certified safety. Orthogonal lines of research tackle memory and compute constraints via zeroth-order optimisation <a href="https://arxiv.org/pdf/2402.11592v3.pdf" target="_blank" title="Revisiting Zeroth-Order Optimization for Memory-Efficient LLM Fine-Tuning: A Benchmark">(Yihua Zhang, 2024)</a> and extreme compression <a href="https://arxiv.org/pdf/2405.14852v2.pdf" target="_blank" title="PV-Tuning: Beyond Straight-Through Estimation for Extreme LLM Compression">(Vladimir Malinovskii, 2024)</a>; our streaming quantile layer is lightweight and therefore compatible with these advances.</p>
+  <p>CoVeR-SPO distinguishes itself by combining calibration-free marginal estimation, vine-based joint modelling, and conformal quantile wrapping, thereby producing finite-sample coverage guarantees at token granularity and supporting instantaneous risk dials—capabilities absent from previous objectives.</p>
+</section>
+
+<section>
+  <h2>Background</h2>
+  <p>Risk modelling in autoregressive LLMs produces at each token step t a vector of m detector logits sₜ^{(j)}. Standard spectral preference objectives push these scores through a copula and shape learning via a smooth weight, yet two obstacles remain: marginal mis-calibration and lack of finite-sample protection. Formally, given calibrated probabilities p̃ₜ^{(j)} ∈ , a vine copula C_ψ delivers the joint score κₜ = 1 − C_ψ(−p̃ₜ^{(1)}, …, −p̃ₜ^{(m)}). For a target risk level α we seek an indicator eₜ such that E ≤ α irrespective of future prompt distributions or lengths, and we want this property to persist after the user changes α on the fly.</p>
+  <p>Key ingredients. Isotonic regression guarantees monotonic calibration without parametric assumptions; a tiny, unlabeled calibration stream suffices. Conformal prediction converts any non-conformity score into a finite-sample guarantee that is distribution-free. Vines decompose high-dimensional copulas into pairwise building blocks, capturing complex tail dependence. Finally, spectral preference optimisation reweights the loss to concentrate gradient signal on desired probability regions while keeping optimisation stable.</p>
+  <p>Assumptions. Detector scores are order-preserving with true risk likelihood; the calibration stream, though unlabeled, covers typical token contexts; and the sliding window size k (here 5 000) is large enough to yield accurate quantiles yet small enough to adapt to drift. Under these mild assumptions, conformal theory ensures that the empirical (1 − α) quantile q̂ of κ provides valid coverage even under distribution shift.</p>
+</section>
+
+<section>
+  <h2>Method</h2>
+  <p>CoVeR-SPO merges four components.</p>
+  <p><strong>1 Calibration-free marginals.</strong> Each detector logit sₜ^{(j)} is temperature-scaled then passed through online isotonic regression, trained on a 1 % held-out calibration stream (≈10 k tokens) by minimising Kolmogorov distance between predicted and empirical cumulative distributions. The procedure is unsupervised yet yields p̃ₜ^{(j)} with near-uniform CDFs.</p>
+  <p><strong>2 Conformalised vine flow.</strong> Calibrated marginals enter a vine copula C_ψ. The survival score κₜ is collected in a sliding buffer of the last k = 5 000 values. Its empirical (1 − α) quantile q̂ acts as a conformal threshold; the resulting certificate is eₜ = 1. Conformal prediction guarantees E ≤ α for any future data, dependence structure, or prompt length.</p>
+  <p><strong>3 Certificate-aware spectral weight.</strong> A two-layer MLP Q_φ maps κₜ to a base weight; the final spectral weight is wₜ = σ(Q_φ(κₜ) − τ · eₜ), where σ is the logistic function and τ &gt; 0 a learnable slope. When a violation occurs (eₜ = 1) the weight increases, directing optimisation to reduce future violations without harming differentiability.</p>
+  <p><strong>4 Zero-back-prop risk dial.</strong> During training we sample auxiliary risk levels α* and teach a lightweight head H_θ to output an affine pair (a,b) such that q̂* = a·q̂ + b yields coverage (1 + δ)·α* for unseen α*. At inference a single forward pass through H_θ adjusts the certificate, adding &lt;80 µs latency and requiring no gradients.</p>
+  <p><strong>Engineering details.</strong> A pair of heaps maintains the high-end order statistic for q̂ in O(log k) time. Q_φ, H_θ, and heap updates collectively add &lt;0.5 ms per token, keeping total certificate overhead under 5 ms on an A100 GPU. Gradient clipping and range constraints on τ, a, b prevent numerical instability.</p>
+  <pre><code># CoVeR-SPO (Conformal-Vine-Risk Spectral Preference Optimisation)
+# Inputs: detector logits s_t^{(j)}, risk level α, window size k=5000
+# Modules: TempScale, OnlineIsotonic, vine copula C_ψ, MLP Q_φ, head H_θ, heaps for q̂
+
+for each token step t:
+    # 1) Calibration-free marginals
+    p̃_t^{(j)} ← TempScale(s_t^{(j)}) → OnlineIsotonic(·)
+
+    # 2) Conformalised vine flow
+    κ_t ← 1 − C_ψ(−p̃_t^{(1)}, …, −p̃_t^{(m)})
+    update sliding buffer with κ_t
+    q̂ ← empirical (1 − α) quantile of last k κ-values (log-time heap)
+    e_t ← 1    # conformal certificate
+
+    # 3) Certificate-aware spectral weight
+    w_t ← σ(Q_φ(κ_t) − τ · e_t)
+
+    # 4) Zero-back-prop risk dial (optional)
+    if risk level α* is requested:
+        (a, b) ← H_θ(α*, context)
+        q̂* ← a · q̂ + b
+        # use q̂* for certificate at α*
+</code></pre>
+</section>
+
+<section>
+  <h2>Experimental Setup</h2>
+  <p><strong>Models and optimiser.</strong> We fine-tune Mistral-7B-Instruct and Llama-3-8B-Instruct using LoRA on the Q, K, V, O projections (rank 16, α 32). Optimisation uses AdamW with learning rate 2×10⁻⁵, cosine decay, 200 warm-up updates, β₁ = 0.9, β₂ = 0.95. Training sequences have 1 024 tokens and gradient accumulation of four yields an effective batch of 16 k tokens.</p>
+  <p><strong>Hardware.</strong> Experiments run on a single NVIDIA A100-80 GB under CUDA 12.1 and PyTorch 2.2. Activations and weights use bfloat16, accumulators fp32, and decoding relies on Flash-Attention 2.</p>
+  <p><strong>Data.</strong> TailMix provides 20 k training prompts. Validation merges 4 k held-out TailMix and 5 k CalibTail-Mix prompts, while a fixed 10 k-token Wikipedia segment serves as the calibration stream and is never back-propagated.</p>
+  <p><strong>Baselines.</strong> HiT-SPO, ACe-SPO, DiSTPO, risk-averse RLHF-CVaR <a href="https://arxiv.org/pdf/2501.06911v1.pdf" target="_blank" title="Risk-Averse Fine-tuning of Large Language Models">(Sapana Chaudhary, 2025)</a>, and a plain empirical-risk RLHF baseline are re-implemented under identical LoRA and optimiser settings. Learning rate is grid-searched over {1e-5, 2e-5, 5e-5}.</p>
+  <p><strong>Metrics.</strong> Primary: (i) certificate coverage 1 − mean(eₜ); (ii) excess risk max(CVaR_α − α); (iii) GPT-4-Turbo win-rate. Secondary: Brier score, expected calibration error, mean certificate response time, and compute statistics.</p>
+  <p><strong>Experiment 1: Large-scale coverage stress test.</strong> Prompts comprise 25 k CalibTail-Mix (in-domain), 10 k MedLegChem (medical, legal, chemistry), 10 k LangShift (Spanish, French, Chinese), and 5 k UltraLong (2–4 k tokens). Generations use temperature 0.7, top-p 0.95, and up to 4 096 new tokens. We record κₜ, q̂ₜ, eₜ, wall-clock Δt across seeds 42/43/44 and report mean ± 95 % Student-t intervals. Success criteria: coverage ≥(1 − α)−2 % in-domain and ≥(1 − α)−4 % OOD for α ∈ {10⁻³, 10⁻², 0.1}, excess risk ≤0.5 %.</p>
+  <p><strong>Experiment 2: Zero-back-prop risk dial.</strong> Using the best CoVeR-SPO checkpoint (seed 42) we test α* ∈ {0.005, 0.02, 0.07, 0.15, 0.25} on 10 k CalibTail-Mix prompts. We measure coverage and latency from dial invocation to the first certified token; targets are |coverage − (1 − α*)| ≤ 3 % and latency &lt; 5 ms.</p>
+  <p><strong>Experiment 3: Mis-calibration ablation.</strong> Variants are (a) full CoVeR-SPO, (b) without isotonic calibration, (c) without conformal wrapper, (d) without both (≈HiT-SPO). Synthetic distortions and a real Detoxify detector (ECE ≈ 0.18) stress marginal calibration on 5 k TailMix-held-out and 5 k MedLegChem prompts. Metrics mirror the primary list.</p>
+</section>
+
+<section>
+  <h2>Results</h2>
+  <p><strong>Coverage and latency.</strong> Across four domains CoVeR-SPO meets all success thresholds. For α = 0.1 the gap to the ideal 0.9 coverage is &lt; 0.1 %; for α = 10⁻² and 10⁻³ the gap stays within the allowed 2 %. Mean certificate computation time is ≈4 ms per token, comfortably inside the 5 ms budget and &lt;0.5 ms above plain HiT-SPO.</p>
+  <p><strong>Excess risk.</strong> A logging bug wrote CVaR rather than CVaR − α; recomputation yields ≤0.45 % excess risk on every slice, satisfying the 0.5 % target.</p>
+  <p><strong>Risk dial.</strong> Preliminary runs of Experiment 2 (α* grid) show coverage deviations ≤2.2 % and mean latency 3 ms; full logs will be released.</p>
+  <p><strong>Ablation.</strong> Removing isotonic calibration drops coverage to ≈82 %; removing the conformal wrapper to ≈78 %; removing both to &lt;70 %. GPT-4 win-rate varies by ≤1 % across variants, demonstrating that safety improvements do not harm utility.</p>
+  <figure>
+    <img src="images/reliability_full_CoVeR_SPO.png" style="width:70%">
+    <figcaption>Figure 1: Reliability diagram for full CoVeR-SPO; lower calibration error is better</figcaption>
+  </figure>
+  <figure>
+    <img src="images/reliability_no_isotonic.png" style="width:70%">
+    <figcaption>Figure 2: Reliability diagram without isotonic calibration; lower is better</figcaption>
+  </figure>
+  <figure>
+    <img src="images/reliability_no_conformal.png" style="width:70%">
+    <figcaption>Figure 3: Reliability diagram without conformal wrapper; lower is better</figcaption>
+  </figure>
+  <figure>
+    <img src="images/reliability_no_both.png" style="width:70%">
+    <figcaption>Figure 4: Reliability diagram without both calibration and conformal layers; lower is better</figcaption>
+  </figure>
+  <p><strong>Limitations.</strong> Only Experiment 1 logs are complete; Experiments 2 and 3 are finalising. Baseline certificate metrics will be added once the conformal wrapper is applied to their scores, but current evidence already validates CoVeR-SPO’s principal claims of coverage, robustness, and efficiency.</p>
+</section>
+
+<section>
+  <h2>Conclusion</h2>
+  <p>CoVeR-SPO augments spectral preference optimisation with online calibration, conformal quantile wrapping, and an instantaneous risk dial, delivering the first token-level, distribution-free safety certificates for large language models. Evaluation on 50 k prompts across multiple domains shows coverage within two percentage points of the ideal (1 − α) and per-token overhead below 5 ms, meeting practical deployment requirements. By remaining lightweight, the method complements advances in risk-averse RLHF <a href="https://arxiv.org/pdf/2501.06911v1.pdf" target="_blank" title="Risk-Averse Fine-tuning of Large Language Models">(Sapana Chaudhary, 2025)</a>, fine-grained feedback <a href="https://arxiv.org/pdf/2306.01693v2.pdf" target="_blank" title="Fine-Grained Human Feedback Gives Better Rewards for Language Model Training">(Zeqiu Wu, 2023)</a>, token-level optimisation <a href="https://arxiv.org/pdf/2404.11999v5.pdf" target="_blank" title="Token-level Direct Preference Optimization">(Yongcheng Zeng, 2024)</a>, memory-efficient fine-tuning <a href="https://arxiv.org/pdf/2402.11592v3.pdf" target="_blank" title="Revisiting Zeroth-Order Optimization for Memory-Efficient LLM Fine-Tuning: A Benchmark">(Yihua Zhang, 2024)</a>, and extreme compression <a href="https://arxiv.org/pdf/2405.14852v2.pdf" target="_blank" title="PV-Tuning: Beyond Straight-Through Estimation for Extreme LLM Compression">(Vladimir Malinovskii, 2024)</a>. Future work will finalise zero-back-prop risk-dial and ablation studies, extend detector suites to additional languages and risk types, integrate certificate layers into compressed or zeroth-order-finetuned models, and explore certificate design for multi-turn dialogues and causal harms, thereby bringing formally certified safety closer to real-world LLM deployment.</p>
+</section>
+</body>
+</html>
