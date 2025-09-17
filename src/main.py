@@ -126,8 +126,8 @@ def run_experiment(config_path):
     eval_results = evaluate(model, val_dataloader, device, diffusion_params, config)
 
     # Save results
-    os.makedirs('.research/iteration1', exist_ok=True)
-    result_filename = os.path.join('.research/iteration1', f'{os.path.basename(config_path).replace(".yaml", "")}_results.json')
+    os.makedirs('.research/iteration2', exist_ok=True)
+    result_filename = os.path.join('.research/iteration2', f'{os.path.basename(config_path).replace(".yaml", "")}_results.json')
     with open(result_filename, 'w') as f:
         json.dump(eval_results, f, indent=2)
     print(f'Results saved to {result_filename}')
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     if args.smoke_test and args.full_experiment:
         raise ValueError('Cannot specify both --smoke-test and --full-experiment.')
     
-    config_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'config')
+    config_dir = os.path.join(os.path.dirname(__file__), '..', 'config')
 
     if args.smoke_test:
         print('--- Running Smoke Test ---')

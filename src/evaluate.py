@@ -26,37 +26,34 @@ def calculate_metrics(model, val_loader, device, diffusion_params):
     
     sqrt_alphas_cumprod, sqrt_one_minus_alphas_cumprod, sqrt_recip_alphas_cumprod, sqrt_recipm1_alphas_cumprod = diffusion_params
 
-    with torch.no_grad():
-        for i, batch in enumerate(val_loader):
-            if i > 10: # Limit evaluation for speed
-                break
-            x0 = batch['img'].to(device)
-            t = torch.randint(0, 999, (x0.shape[0],), device=device).long()
+    for i, batch in enumerate(val_loader):
+        if i > 10: # Limit evaluation for speed
+            break
+        x0 = batch['img'].to(device)
+        t = torch.randint(0, len(sqrt_alphas_cumprod), (x0.shape[0],), device=device).long()
 
-            # Jacobian Norm (proxy)
-            noise = torch.randn_like(x0)
-            xt = q_sample(x0, t, noise, sqrt_alphas_cumprod, sqrt_one_minus_alphas_cumprod)
-            xt.requires_grad_(True)
-            x0_hat = predict_x0_from_eps(xt, t, model(xt, t), sqrt_recip_alphas_cumprod, sqrt_recipm1_alphas_cumprod)
-            v = torch.randn_like(x0)
-            jvp = torch.autograd.grad(x0_hat, xt, v, retain_graph=False, create_graph=False)[0]
-            total_jac_norm += torch.norm(jvp, p='fro').item()
+        # Jacobian Norm (proxy) - needs gradients enabled
+        noise = torch.randn_like(x0)
+        xt = q_sample(x0, t, noise, sqrt_alphas_cumprod, sqrt_one_minus_alphas_cumprod)
+        xt.requires_grad_(True)
+        eps_pred = model(xt, t)
+        x0_hat = predict_x0_from_eps(xt, t, eps_pred, sqrt_recip_alphas_cumprod, sqrt_recipm1_alphas_cumprod)
+        v = torch.randn_like(x0)
+        jvp = torch.autograd.grad(x0_hat, xt, v, retain_graph=False, create_graph=False)[0]
+        total_jac_norm += torch.norm(jvp, p='fro').item()
 
+        with torch.no_grad():
             # Empirical Lipschitz
-            def model_map(v_in):
-                return torch.autograd.grad(model(x0,t).sum(), x0, v_in, retain_graph=True)[0]
-            # sigma, _ = power_iteration(model_map)
-            # total_lip_const += sigma.item()
             total_lip_const += 1.0 # Placeholder as it's slow
             
             # 1-step forward error
-            t_start = torch.full((x0.shape[0],), 999, device=device, dtype=torch.long)
+            t_start = torch.full((x0.shape[0],), len(sqrt_alphas_cumprod)-1, device=device, dtype=torch.long)
             xt_start = q_sample(x0, t_start, noise, sqrt_alphas_cumprod, sqrt_one_minus_alphas_cumprod)
             eps_pred = model(xt_start, t_start)
             x0_pred = predict_x0_from_eps(xt_start, t_start, eps_pred, sqrt_recip_alphas_cumprod, sqrt_recipm1_alphas_cumprod)
             total_forward_error += torch.mean((x0_pred - x0)**2).item()
 
-            num_batches += 1
+        num_batches += 1
 
     avg_jac_norm = total_jac_norm / num_batches if num_batches > 0 else 0
     avg_lip_const = total_lip_const / num_batches if num_batches > 0 else 0
@@ -76,15 +73,15 @@ def calculate_metrics(model, val_loader, device, diffusion_params):
 def generate_plots(results):
     # This is a placeholder for generating actual plots.
     # For now, it creates a dummy plot.
-    os.makedirs('.research/iteration1/images', exist_ok=True)
+    os.makedirs('.research/iteration2/images', exist_ok=True)
     fig, ax = plt.subplots()
     metrics = list(results.keys())
     values = [v if isinstance(v, (int, float)) else 0 for v in results.values()]
     ax.barh(metrics, values)
     ax.set_title('Evaluation Metrics')
-    plt.savefig('.research/iteration1/images/evaluation_summary.png')
+    plt.savefig('.research/iteration2/images/evaluation_summary.png')
     plt.close(fig)
-    print('Saved evaluation plot to .research/iteration1/images/evaluation_summary.png')
+    print('Saved evaluation plot to .research/iteration2/images/evaluation_summary.png')
 
 def evaluate(model, val_loader, device, diffusion_params, config):
     print('Starting evaluation...')

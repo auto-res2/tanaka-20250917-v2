@@ -58,36 +58,41 @@ class UNet(nn.Module):
         for ind, (dim_in, dim_out) in enumerate(in_out):
             self.downs.append(nn.Sequential(
                 nn.Conv2d(dim_in, dim_out, 3, padding=1),
-                nn.GroupNorm(8, dim_out),
+                nn.GroupNorm(min(8, dim_out), dim_out),
                 nn.SiLU(),
                 nn.Conv2d(dim_out, dim_out, 3, padding=1),
-                nn.GroupNorm(8, dim_out),
+                nn.GroupNorm(min(8, dim_out), dim_out),
                 nn.SiLU(),
                 nn.Conv2d(dim_out, dim_out, 2, stride=2) if ind < len(in_out) -1 else nn.Identity()
             ))
 
         for ind, (dim_in, dim_out) in enumerate(reversed(in_out)):
+            is_first = ind == 0
+            # For other layers: skip connection doubles input, so dim_out * 2
+            input_channels = dim_out if is_first else dim_out * 2
             self.ups.append(nn.Sequential(
-                nn.ConvTranspose2d(dim_out*2, dim_in, 2, stride=2) if ind > 0 else nn.Identity(),
-                nn.Conv2d(dim_in, dim_in, 3, padding=1),
-                nn.GroupNorm(8, dim_in),
+                nn.Conv2d(input_channels, dim_in, 3, padding=1),
+                nn.GroupNorm(min(8, dim_in), dim_in),
                 nn.SiLU(),
                 nn.Conv2d(dim_in, dim_in, 3, padding=1),
-                nn.GroupNorm(8, dim_in),
-                nn.SiLU()
+                nn.GroupNorm(min(8, dim_in), dim_in),
+                nn.SiLU(),
+                nn.ConvTranspose2d(dim_in, dim_in, 2, stride=2) if not is_first else nn.Identity()
             ))
-        self.final_conv = nn.Conv2d(dims[0], 3, 1)
+        self.final_conv = nn.Conv2d(3, 3, 1)
 
     def forward(self, x, time):
         t_emb = self.time_mlp(time)
         residuals = []
-        for down in self.downs:
-            x = down(x)
-            residuals.append(x)
         
-        for up in self.ups:
-            res = residuals.pop()
-            x = torch.cat((x, res), dim=1)
+        for down in self.downs:
+            residuals.append(x)
+            x = down(x)
+        
+        for i, up in enumerate(self.ups):
+            if i > 0:  # Skip connection for all but first upsampling layer
+                res = residuals.pop()
+                x = torch.cat((x, res), dim=1)
             x = up(x)
             
         return self.final_conv(x)
@@ -125,9 +130,13 @@ def jasaic_loss(model, x0, t, alphas_cumprod, sqrt_alphas_cumprod, sqrt_one_minu
 
     Jt = jvp(x0_hat_t, xt)
     
-    with torch.no_grad():
-        Jk_proxies = [predict_x0_from_eps(x_k, t_k, model(x_k, t_k), sqrt_recip_alphas_cumprod, sqrt_recipm1_alphas_cumprod) for x_k, t_k in [(xs,s), (xr,r), (xj,j), (xd,d)]]
-        Jk_grads = [jvp(proxy, x_proxy) for proxy, x_proxy in zip(Jk_proxies, [xs, xr, xj, xd])]
+    xs.requires_grad_()
+    xr.requires_grad_()
+    xj.requires_grad_()
+    xd.requires_grad_()
+    
+    Jk_proxies = [predict_x0_from_eps(x_k, t_k, model(x_k, t_k), sqrt_recip_alphas_cumprod, sqrt_recipm1_alphas_cumprod) for x_k, t_k in [(xs,s), (xr,r), (xj,j), (xd,d)]]
+    Jk_grads = [jvp(proxy, x_proxy) for proxy, x_proxy in zip(Jk_proxies, [xs, xr, xj, xd])]
 
     jac_gap = sum(((Jt - j_grad)**2).mean(dim=[1, 2, 3]) for j_grad in Jk_grads)
 
@@ -137,7 +146,7 @@ def jasaic_loss(model, x0, t, alphas_cumprod, sqrt_alphas_cumprod, sqrt_one_minu
     cov = ((x0_hat_t - xt) * (x0_hat_s - x0_hat_r)).mean(dim=[1, 2, 3])
     rho = cov / (vc + eps)
 
-    lamJ = vb / (jac_gap.detach() + eps)
+    lamJ = vb / (jac_gap + eps)
 
     w = torch.sqrt(alphas_cumprod[s] / alphas_cumprod[t])
     val_gap = ((x0_hat_s.detach() - x0_hat_t)**2 + (x0_hat_r.detach() - x0_hat_t)**2 + (x0_hat_j.detach() - x0_hat_t)**2 + (x0_hat_d.detach() - x0_hat_t)**2).mean(dim=[1, 2, 3])
