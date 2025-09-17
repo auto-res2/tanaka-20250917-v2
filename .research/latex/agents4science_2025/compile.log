@@ -343,185 +343,64 @@ ts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
 base/8r.enc}] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 
 Package natbib Warning: Citation `chaudhary-2025-risk' on page 2 undefined on i
-nput line 86.
+nput line 91.
 
 
 Package natbib Warning: Citation `zeng-2024-token' on page 2 undefined on input
- line 86.
+ line 91.
 
 
 Package natbib Warning: Citation `wu-2023-fine' on page 2 undefined on input li
-ne 86.
+ne 91.
 
 
 Package natbib Warning: Citation `shao-2024-language' on page 2 undefined on in
-put line 88.
+put line 93.
 
 
 Package natbib Warning: Citation `shao-2023-beyond' on page 2 undefined on inpu
-t line 88.
+t line 93.
 
 
 Package natbib Warning: Citation `ethayarajh-2024-model' on page 2 undefined on
- input line 88.
+ input line 93.
 
 
 Package natbib Warning: Citation `lu-2024-discovering' on page 2 undefined on i
-nput line 88.
+nput line 93.
 
 
 Package natbib Warning: Citation `baheti-2023-leftover' on page 2 undefined on 
-input line 88.
+input line 93.
 
 
 Package natbib Warning: Citation `zhang-2024-revisiting' on page 2 undefined on
- input line 88.
+ input line 93.
 
 
 Package natbib Warning: Citation `malinovskii-2024-tuning' on page 2 undefined 
-on input line 88.
+on input line 93.
 
-[2]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-[3]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
+[2] [3]
 
 Package natbib Warning: Citation `chaudhary-2025-risk' on page 4 undefined on i
-nput line 175.
+nput line 180.
 
 
 Package natbib Warning: Citation `wu-2023-fine' on page 4 undefined on input li
-ne 175.
+ne 180.
 
 
 Package natbib Warning: Citation `zeng-2024-token' on page 4 undefined on input
- line 175.
+ line 180.
 
 
 Package natbib Warning: Citation `zhang-2024-revisiting' on page 4 undefined on
- input line 175.
+ input line 180.
 
 
 Package natbib Warning: Citation `malinovskii-2024-tuning' on page 4 undefined 
-on input line 175.
+on input line 180.
 
 
 Package natbib Warning: There were undefined citations.
@@ -596,20 +475,18 @@ Package rerunfilecheck Warning: File `paper.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
 
- )
-(see the transcript file for additional information) </home/runner/.texlive2023
-/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (4 pages, 140939 bytes).
+ ) </home/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.60
+0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
+b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on paper.pdf (4 pages, 142048 bytes).
 Transcript written on paper.log.
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 The top-level auxiliary file: paper.aux
@@ -961,128 +838,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 ts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
 base/8r.enc}] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 [2]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-
 Underfull \vbox (badness 10000) has occurred while \output is active [3]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
 [4] [5] (./paper.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
@@ -1100,7 +856,7 @@ y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (5 pages, 142254 bytes).
+Output written on paper.pdf (5 pages, 143374 bytes).
 Transcript written on paper.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1447,128 +1203,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 ts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
 base/8r.enc}] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 [2]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.146 ...inewidth]{reliability_full_CoVeR_SPO.pdf}
-                                                  
-
 Underfull \vbox (badness 10000) has occurred while \output is active [3]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.153 ...7\linewidth]{reliability_no_isotonic.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.160 ...\linewidth]{reliability_no_conformal.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Extra }, or forgotten $.
-\fbox  ...x {\color@begingroup \kern \fboxsep {#1}
-                                                  \kern \fboxsep \color@endg...
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Missing $ inserted.
-<inserted text> 
-                $
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
-! Missing } inserted.
-<inserted text> 
-                }
-l.167 ...h=0.7\linewidth]{reliability_no_both.pdf}
-                                                  
 [4] [5] (./paper.aux) )
 (see the transcript file for additional information) </home/runner/.texlive2023
 /texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk></usr/share/texlive/texmf
@@ -1582,5 +1217,5 @@ y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (5 pages, 142254 bytes).
+Output written on paper.pdf (5 pages, 143374 bytes).
 Transcript written on paper.log.
