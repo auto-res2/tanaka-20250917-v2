@@ -1,0 +1,18 @@
+=== uv sync start Wed Sep 17 02:53:24 AM UTC 2025 ===
+=== uv install end Wed Sep 17 02:53:31 AM UTC 2025 ===
+=== [PHASE 1/2] Smoke test start Wed Sep 17 02:53:31 AM UTC 2025 ===
+--- Starting Smoke Test ---
+Using device: cuda
+Loading and preprocessing data (simulated)...
+Data loading and preprocessing complete.
+
+==================================================
+RUNNING EXPERIMENT FOR SEED: 42
+==================================================
+
+--- Model: unsloth/mistral-7b-instruct-v0.3-bnb-4bit ---
+Error setting up model unsloth/mistral-7b-instruct-v0.3-bnb-4bit: 
+ requires the protobuf library but it was not found in your environment. Check out the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
