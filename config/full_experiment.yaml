@@ -1,0 +1,22 @@
+model:
+  size: 'M' # EDM-U-Net-M (349M params)
+
+data:
+  name: 'cifar10' # Using CIFAR-10 for the main benchmark
+  image_size: 32
+
+training:
+  epochs: 50 # Budget is 400M images, this is a proxy. A step-based limit is more accurate.
+  batch_size: 128 # Per-GPU micro-batch size
+  learning_rate: 0.0003
+  num_timesteps: 1000
+  max_d: 20
+  optimizer:
+    beta1: 0.9
+    beta2: 0.95
+    weight_decay: 0.02
+
+carbon_stop:
+  enabled: true
+  threshold: 0.1 # Stop when -dFID/dCO2 < 0.1 FID/kg
+  update_interval_steps: 500 # How often to update the regression
