@@ -50,6 +50,7 @@ For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
@@ -327,11 +328,8 @@ No file paper.aux.
 [Loading MPS to PDF converter (version 2006.09.02).]
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
-
-Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
-ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
-your preamble.
- on input line 40.
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
@@ -345,93 +343,48 @@ ts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
 base/8r.enc}] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 
 Package natbib Warning: Citation `chaudhary-2025-risk' on page 2 undefined on i
-nput line 66.
+nput line 77.
 
 
 Package natbib Warning: Citation `zeng-2024-token' on page 2 undefined on input
- line 66.
+ line 77.
 
 
 Package natbib Warning: Citation `wu-2023-fine' on page 2 undefined on input li
-ne 66.
+ne 77.
 
 
 Package natbib Warning: Citation `shao-2024-language' on page 2 undefined on in
-put line 68.
+put line 79.
 
 
 Package natbib Warning: Citation `shao-2023-beyond' on page 2 undefined on inpu
-t line 68.
+t line 79.
 
 
 Package natbib Warning: Citation `ethayarajh-2024-model' on page 2 undefined on
- input line 68.
+ input line 79.
 
 
 Package natbib Warning: Citation `lu-2024-discovering' on page 2 undefined on i
-nput line 68.
+nput line 79.
 
 
 Package natbib Warning: Citation `baheti-2023-leftover' on page 2 undefined on 
-input line 68.
+input line 79.
 
 
 Package natbib Warning: Citation `zhang-2024-revisiting' on page 2 undefined on
- input line 68.
+ input line 79.
 
 
 Package natbib Warning: Citation `malinovskii-2024-tuning' on page 2 undefined 
-on input line 68.
+on input line 79.
 
 [2]
 
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.82 1\)
-         Calibration-free marginals. Each detector logit \(s_{t}^{(j)}\) is ...
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.84 2\)
-         Conformalised vine flow. Calibrated marginals enter a vine copula \...
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.86 3\)
-         Certificate-aware spectral weight. A two-layer MLP \(Q_{\phi}\) map...
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.88 4\)
-         Zero-back-prop risk dial. During training we sample auxiliary risk ...
-
-[3]
-
-Package natbib Warning: Citation `chaudhary-2025-risk' on page 4 undefined on i
-nput line 118.
-
-
-LaTeX Warning: File ` images/reliability\_full\_CoVeR\_SPO.pdf ' not found on i
-nput line 139.
+LaTeX Warning: File `images/reliability_full_CoVeR_SPO.pdf' not found on input 
+line 137.
 
 
 ! Package pdftex.def Error: File `images/reliability_full_CoVeR_SPO.pdf' not fo
@@ -441,13 +394,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.139 ...mages/reliability\_full\_CoVeR\_SPO.pdf }
+l.137 ...h]{images/reliability_full_CoVeR_SPO.pdf}
                                                   
 
-Underfull \vbox (badness 10000) has occurred while \output is active [4]
+Underfull \vbox (badness 10000) has occurred while \output is active [3]
 
-LaTeX Warning: File ` images/reliability\_no\_isotonic.pdf ' not found on input
- line 146.
+LaTeX Warning: File `images/reliability_no_isotonic.pdf' not found on input lin
+e 144.
 
 
 ! Package pdftex.def Error: File `images/reliability_no_isotonic.pdf' not found
@@ -457,11 +410,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.146 ...]{ images/reliability\_no\_isotonic.pdf }
+l.144 ...idth]{images/reliability_no_isotonic.pdf}
                                                   
 
-LaTeX Warning: File ` images/reliability\_no\_conformal.pdf ' not found on inpu
-t line 153.
+Underfull \vbox (badness 10000) has occurred while \output is active [4]
+
+LaTeX Warning: File `images/reliability_no_conformal.pdf' not found on input li
+ne 151.
 
 
 ! Package pdftex.def Error: File `images/reliability_no_conformal.pdf' not foun
@@ -471,13 +426,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.153 ...{ images/reliability\_no\_conformal.pdf }
+l.151 ...dth]{images/reliability_no_conformal.pdf}
                                                   
 
-Underfull \vbox (badness 10000) has occurred while \output is active [5]
-
-LaTeX Warning: File ` images/reliability\_no\_both.pdf ' not found on input lin
-e 160.
+LaTeX Warning: File `images/reliability_no_both.pdf' not found on input line 15
+8.
 
 
 ! Package pdftex.def Error: File `images/reliability_no_both.pdf' not found: us
@@ -487,47 +440,35 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.160 ...idth]{ images/reliability\_no\_both.pdf }
+l.158 ...inewidth]{images/reliability_no_both.pdf}
                                                   
 
-LaTeX Warning: Reference `fig:reliability-full' on page 6 undefined on input li
-ne 165.
+Underfull \vbox (badness 10000) has occurred while \output is active [5]
+
+Package natbib Warning: Citation `chaudhary-2025-risk' on page 6 undefined on i
+nput line 166.
 
 
-LaTeX Warning: Reference `fig:reliability-no-isotonic' on page 6 undefined on i
-nput line 165.
+Package natbib Warning: Citation `wu-2023-fine' on page 6 undefined on input li
+ne 166.
 
 
-LaTeX Warning: Reference `fig:reliability-no-both' on page 6 undefined on input
- line 165.
+Package natbib Warning: Citation `zeng-2024-token' on page 6 undefined on input
+ line 166.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active [6]
-
-Package natbib Warning: Citation `chaudhary-2025-risk' on page 7 undefined on i
-nput line 170.
+Package natbib Warning: Citation `zhang-2024-revisiting' on page 6 undefined on
+ input line 166.
 
 
-Package natbib Warning: Citation `wu-2023-fine' on page 7 undefined on input li
-ne 170.
-
-
-Package natbib Warning: Citation `zeng-2024-token' on page 7 undefined on input
- line 170.
-
-
-Package natbib Warning: Citation `zhang-2024-revisiting' on page 7 undefined on
- input line 170.
-
-
-Package natbib Warning: Citation `malinovskii-2024-tuning' on page 7 undefined 
-on input line 170.
+Package natbib Warning: Citation `malinovskii-2024-tuning' on page 6 undefined 
+on input line 166.
 
 No file paper.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-[7] (./paper.aux)
+[6] (./paper.aux)
 kpathsea: Running mktexpk --mfmode / --bdpi 600 --mag 1+0/600 --dpi 600 ectt1000
 mktexpk: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1+0/600; nonstopmode; input ectt1000
 This is METAFONT, Version 2.71828182 (TeX Live 2023/Debian) (preloaded base=mf)
@@ -585,9 +526,6 @@ Transcript written on ectt1000.log.
 mktexpk: /home/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk: successfully generated.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
@@ -608,7 +546,7 @@ y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (7 pages, 151219 bytes).
+Output written on paper.pdf (6 pages, 140767 bytes).
 Transcript written on paper.log.
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 The top-level auxiliary file: paper.aux
@@ -677,6 +615,7 @@ For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
@@ -954,11 +893,8 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 [Loading MPS to PDF converter (version 2006.09.02).]
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
-
-Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
-ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
-your preamble.
- on input line 40.
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 (./paper.out) (./paper.out)
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
@@ -973,93 +909,48 @@ ts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
 base/8r.enc}] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 
 Package natbib Warning: Citation `chaudhary-2025-risk' on page 2 undefined on i
-nput line 66.
+nput line 77.
 
 
 Package natbib Warning: Citation `zeng-2024-token' on page 2 undefined on input
- line 66.
+ line 77.
 
 
 Package natbib Warning: Citation `wu-2023-fine' on page 2 undefined on input li
-ne 66.
+ne 77.
 
 
 Package natbib Warning: Citation `shao-2024-language' on page 2 undefined on in
-put line 68.
+put line 79.
 
 
 Package natbib Warning: Citation `shao-2023-beyond' on page 2 undefined on inpu
-t line 68.
+t line 79.
 
 
 Package natbib Warning: Citation `ethayarajh-2024-model' on page 2 undefined on
- input line 68.
+ input line 79.
 
 
 Package natbib Warning: Citation `lu-2024-discovering' on page 2 undefined on i
-nput line 68.
+nput line 79.
 
 
 Package natbib Warning: Citation `baheti-2023-leftover' on page 2 undefined on 
-input line 68.
+input line 79.
 
 
 Package natbib Warning: Citation `zhang-2024-revisiting' on page 2 undefined on
- input line 68.
+ input line 79.
 
 
 Package natbib Warning: Citation `malinovskii-2024-tuning' on page 2 undefined 
-on input line 68.
+on input line 79.
 
 [2]
 
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.82 1\)
-         Calibration-free marginals. Each detector logit \(s_{t}^{(j)}\) is ...
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.84 2\)
-         Conformalised vine flow. Calibrated marginals enter a vine copula \...
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.86 3\)
-         Certificate-aware spectral weight. A two-layer MLP \(Q_{\phi}\) map...
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.88 4\)
-         Zero-back-prop risk dial. During training we sample auxiliary risk ...
-
-[3]
-
-Package natbib Warning: Citation `chaudhary-2025-risk' on page 4 undefined on i
-nput line 118.
-
-
-LaTeX Warning: File ` images/reliability\_full\_CoVeR\_SPO.pdf ' not found on i
-nput line 139.
+LaTeX Warning: File `images/reliability_full_CoVeR_SPO.pdf' not found on input 
+line 137.
 
 
 ! Package pdftex.def Error: File `images/reliability_full_CoVeR_SPO.pdf' not fo
@@ -1069,13 +960,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.139 ...mages/reliability\_full\_CoVeR\_SPO.pdf }
+l.137 ...h]{images/reliability_full_CoVeR_SPO.pdf}
                                                   
 
-Underfull \vbox (badness 10000) has occurred while \output is active [4]
+Underfull \vbox (badness 10000) has occurred while \output is active [3]
 
-LaTeX Warning: File ` images/reliability\_no\_isotonic.pdf ' not found on input
- line 146.
+LaTeX Warning: File `images/reliability_no_isotonic.pdf' not found on input lin
+e 144.
 
 
 ! Package pdftex.def Error: File `images/reliability_no_isotonic.pdf' not found
@@ -1085,11 +976,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.146 ...]{ images/reliability\_no\_isotonic.pdf }
+l.144 ...idth]{images/reliability_no_isotonic.pdf}
                                                   
 
-LaTeX Warning: File ` images/reliability\_no\_conformal.pdf ' not found on inpu
-t line 153.
+Underfull \vbox (badness 10000) has occurred while \output is active [4]
+
+LaTeX Warning: File `images/reliability_no_conformal.pdf' not found on input li
+ne 151.
 
 
 ! Package pdftex.def Error: File `images/reliability_no_conformal.pdf' not foun
@@ -1099,13 +992,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.153 ...{ images/reliability\_no\_conformal.pdf }
+l.151 ...dth]{images/reliability_no_conformal.pdf}
                                                   
 
-Underfull \vbox (badness 10000) has occurred while \output is active [5]
-
-LaTeX Warning: File ` images/reliability\_no\_both.pdf ' not found on input lin
-e 160.
+LaTeX Warning: File `images/reliability_no_both.pdf' not found on input line 15
+8.
 
 
 ! Package pdftex.def Error: File `images/reliability_no_both.pdf' not found: us
@@ -1115,31 +1006,31 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.160 ...idth]{ images/reliability\_no\_both.pdf }
+l.158 ...inewidth]{images/reliability_no_both.pdf}
                                                   
 
-Underfull \vbox (badness 10000) has occurred while \output is active [6]
+Underfull \vbox (badness 10000) has occurred while \output is active [5]
 
-Package natbib Warning: Citation `chaudhary-2025-risk' on page 7 undefined on i
-nput line 170.
-
-
-Package natbib Warning: Citation `wu-2023-fine' on page 7 undefined on input li
-ne 170.
+Package natbib Warning: Citation `chaudhary-2025-risk' on page 6 undefined on i
+nput line 166.
 
 
-Package natbib Warning: Citation `zeng-2024-token' on page 7 undefined on input
- line 170.
+Package natbib Warning: Citation `wu-2023-fine' on page 6 undefined on input li
+ne 166.
 
 
-Package natbib Warning: Citation `zhang-2024-revisiting' on page 7 undefined on
- input line 170.
+Package natbib Warning: Citation `zeng-2024-token' on page 6 undefined on input
+ line 166.
 
 
-Package natbib Warning: Citation `malinovskii-2024-tuning' on page 7 undefined 
-on input line 170.
+Package natbib Warning: Citation `zhang-2024-revisiting' on page 6 undefined on
+ input line 166.
 
-(./paper.bbl)
+
+Package natbib Warning: Citation `malinovskii-2024-tuning' on page 6 undefined 
+on input line 166.
+
+(./paper.bbl [6])
 
 Package natbib Warning: There were undefined citations.
 
@@ -1161,7 +1052,7 @@ y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (7 pages, 154349 bytes).
+Output written on paper.pdf (7 pages, 144222 bytes).
 Transcript written on paper.log.
 This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)
  restricted \write18 enabled.
@@ -1215,6 +1106,7 @@ For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
@@ -1492,11 +1384,8 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 [Loading MPS to PDF converter (version 2006.09.02).]
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
-
-Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
-ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
-your preamble.
- on input line 40.
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
 (./paper.out) (./paper.out)
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg)
@@ -1511,50 +1400,8 @@ ts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
 base/8r.enc}] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd)
 [2]
 
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.82 1\)
-         Calibration-free marginals. Each detector logit \(s_{t}^{(j)}\) is ...
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.84 2\)
-         Conformalised vine flow. Calibrated marginals enter a vine copula \...
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.86 3\)
-         Certificate-aware spectral weight. A two-layer MLP \(Q_{\phi}\) map...
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.88 4\)
-         Zero-back-prop risk dial. During training we sample auxiliary risk ...
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active [3]
-
-LaTeX Warning: File ` images/reliability\_full\_CoVeR\_SPO.pdf ' not found on i
-nput line 139.
+LaTeX Warning: File `images/reliability_full_CoVeR_SPO.pdf' not found on input 
+line 137.
 
 
 ! Package pdftex.def Error: File `images/reliability_full_CoVeR_SPO.pdf' not fo
@@ -1564,13 +1411,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.139 ...mages/reliability\_full\_CoVeR\_SPO.pdf }
+l.137 ...h]{images/reliability_full_CoVeR_SPO.pdf}
                                                   
 
-Underfull \vbox (badness 10000) has occurred while \output is active [4]
+Underfull \vbox (badness 10000) has occurred while \output is active [3]
 
-LaTeX Warning: File ` images/reliability\_no\_isotonic.pdf ' not found on input
- line 146.
+LaTeX Warning: File `images/reliability_no_isotonic.pdf' not found on input lin
+e 144.
 
 
 ! Package pdftex.def Error: File `images/reliability_no_isotonic.pdf' not found
@@ -1580,11 +1427,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.146 ...]{ images/reliability\_no\_isotonic.pdf }
+l.144 ...idth]{images/reliability_no_isotonic.pdf}
                                                   
 
-LaTeX Warning: File ` images/reliability\_no\_conformal.pdf ' not found on inpu
-t line 153.
+Underfull \vbox (badness 10000) has occurred while \output is active [4]
+
+LaTeX Warning: File `images/reliability_no_conformal.pdf' not found on input li
+ne 151.
 
 
 ! Package pdftex.def Error: File `images/reliability_no_conformal.pdf' not foun
@@ -1594,13 +1443,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.153 ...{ images/reliability\_no\_conformal.pdf }
+l.151 ...dth]{images/reliability_no_conformal.pdf}
                                                   
 
-Underfull \vbox (badness 10000) has occurred while \output is active [5]
-
-LaTeX Warning: File ` images/reliability\_no\_both.pdf ' not found on input lin
-e 160.
+LaTeX Warning: File `images/reliability_no_both.pdf' not found on input line 15
+8.
 
 
 ! Package pdftex.def Error: File `images/reliability_no_both.pdf' not found: us
@@ -1610,11 +1457,11 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.160 ...idth]{ images/reliability\_no\_both.pdf }
+l.158 ...inewidth]{images/reliability_no_both.pdf}
                                                   
 
-Underfull \vbox (badness 10000) has occurred while \output is active [6]
-(./paper.bbl) [7] (./paper.aux) )
+Underfull \vbox (badness 10000) has occurred while \output is active [5]
+(./paper.bbl [6]) [7] (./paper.aux) )
 (see the transcript file for additional information) </home/runner/.texlive2023
 /texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/
@@ -1627,5 +1474,5 @@ y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on paper.pdf (7 pages, 154843 bytes).
+Output written on paper.pdf (7 pages, 144931 bytes).
 Transcript written on paper.log.
