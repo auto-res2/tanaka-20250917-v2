@@ -74,15 +74,21 @@ def run_exp2_risk_dial(model, H_theta, config, device):
     
     with torch.no_grad():
         for alpha_star in alpha_set:
-            start = torch.cuda.Event(enable_timing=True)
-            end   = torch.cuda.Event(enable_timing=True)
-            start.record()
-            # Simulate forward pass of H_theta to get affine update
-            _ = H_theta(torch.tensor([alpha_star], device=device))
-            torch.cuda.synchronize() # Wait for the event to complete
-            end.record()
-            torch.cuda.synchronize()
-            lat_ms = start.elapsed_time(end)
+            if device == 'cuda':
+                start = torch.cuda.Event(enable_timing=True)
+                end   = torch.cuda.Event(enable_timing=True)
+                start.record()
+                # Simulate forward pass of H_theta to get affine update
+                _ = H_theta(torch.tensor([alpha_star], device=device))
+                torch.cuda.synchronize() # Wait for the event to complete
+                end.record()
+                torch.cuda.synchronize()
+                lat_ms = start.elapsed_time(end)
+            else:
+                start_time = time.perf_counter()
+                _ = H_theta(torch.tensor([alpha_star], device=device))
+                end_time = time.perf_counter()
+                lat_ms = (end_time - start_time) * 1000  # Convert to milliseconds
             
             # Simulate generation with new alpha_star
             kappa_scores = np.random.rand(config['generation']['max_new_tokens'])
@@ -136,7 +142,7 @@ def run_exp3_ablation(model, config, device):
         results[variant] = {'brier_score': brier, 'ece': ece, 'coverage': coverage}
         
         fig = reliability_diagram(y_true, y_prob)
-        fig_path = f'.research/iteration1/images/reliability_{variant}.png'
+        fig_path = f'.research/iteration2/images/reliability_{variant}.png'
         fig.savefig(fig_path)
         print(f"Saved reliability diagram to {fig_path}")
         plt.close(fig)

@@ -4,12 +4,6 @@ version = "0.1.0"
 description = "Implementation of CoVeR-SPO for certified safety in LLMs."
 authors = [{name = "ML Researcher", email = "researcher@example.com"}]
 readme = "README.md"
-
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
-[project.dependencies]
 dependencies = [
     "torch>=2.2.0",
     "numpy>=1.23.0",
@@ -24,3 +18,7 @@ dependencies = [
     "matplotlib>=3.7.0",
     "tqdm>=4.65.0"
 ]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
